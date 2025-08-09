@@ -4,22 +4,28 @@
  * notifications, loading animations and dynamic effects.
  */
 
-// Fast smooth scrolling for hash links
+// Smooth scrolling for hash links with proper timing
 document.addEventListener('DOMContentLoaded', function() {
-    // Override smooth scrolling for faster, more responsive scrolling
+    // Override smooth scrolling for better control
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerOffset = 100;
+                const headerOffset = 150; // More space from header
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
+                // Slower, more controlled scrolling
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Add a small delay to ensure proper positioning
+                setTimeout(() => {
+                    target.focus({preventScroll: true});
+                }, 800);
             }
         });
     });
