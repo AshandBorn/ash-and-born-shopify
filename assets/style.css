@@ -41,7 +41,7 @@ body {
 
 .moving-text {
     display: inline-block;
-    animation: scroll 30s linear infinite;
+    animation: scroll 15s linear infinite;
 }
 
 @keyframes scroll {
@@ -88,7 +88,7 @@ body {
     color: var(--dark-text);
     font-weight: 500;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-menu a:hover {
@@ -114,7 +114,7 @@ body {
     font-size: 1.3rem;
     color: var(--dark-text);
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-icon:hover, .user-icon:hover, .cart-icon:hover {
@@ -234,7 +234,7 @@ body {
     justify-content: center;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: heroFloat 6s ease-in-out infinite;
+    animation: heroFloat 3s ease-in-out infinite;
 }
 .hero-cylinder::before {
     content: 'ASH & BORN';
@@ -264,7 +264,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
 }
 
@@ -311,7 +311,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
@@ -396,7 +396,7 @@ body {
 .product-name a {
     color: var(--dark-text);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-name a:hover {
@@ -426,7 +426,7 @@ body {
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .add-to-cart-btn:hover {
@@ -500,9 +500,9 @@ body {
     opacity: 0.8;
 }
 
-.watermelon-slice:nth-child(1) { top: 0; left: 0; animation: float 3s ease-in-out infinite; }
-.watermelon-slice:nth-child(2) { top: 50px; right: 0; animation: float 3s ease-in-out infinite 0.5s; }
-.watermelon-slice:nth-child(3) { bottom: 0; left: 50px; animation: float 3s ease-in-out infinite 1s; }
+.watermelon-slice:nth-child(1) { top: 0; left: 0; animation: float 2s ease-in-out infinite; }
+.watermelon-slice:nth-child(2) { top: 50px; right: 0; animation: float 2s ease-in-out infinite 0.3s; }
+.watermelon-slice:nth-child(3) { bottom: 0; left: 50px; animation: float 2s ease-in-out infinite 0.6s; }
 
 .product-packet {
     position: absolute;
@@ -544,7 +544,7 @@ body {
     font-weight: 900;
     text-align: center;
     white-space: nowrap;
-    animation: scroll-banner 20s linear infinite;
+    animation: scroll-banner 10s linear infinite;
     margin-bottom: 4rem;
     color: var(--green-dark);
 }
@@ -693,7 +693,7 @@ body {
 .footer-section ul li a {
     color: var(--light-text);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-section ul li a:hover {
@@ -705,7 +705,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--light-text);
-    transition: color 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icons i:hover {
@@ -785,7 +785,7 @@ button, .shop-now-btn {
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    animation: ripple 0.6s linear;
+    animation: ripple 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: rgba(255, 255, 255, 0.5);
     pointer-events: none;
 }
@@ -799,7 +799,7 @@ button, .shop-now-btn {
 
 /* Bounce animation for clicked elements */
 .click-bounce {
-    animation: clickBounce 0.3s ease;
+    animation: clickBounce 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes clickBounce {
@@ -866,7 +866,7 @@ button, .shop-now-btn {
     object-fit: cover;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
 }
 
 .product-info h2 {
@@ -1014,7 +1014,7 @@ button, .shop-now-btn {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-card:hover {
@@ -1078,7 +1078,7 @@ button, .shop-now-btn {
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .use-card:hover {
@@ -1212,7 +1212,7 @@ button, .shop-now-btn {
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-form button:hover {
@@ -1237,7 +1237,7 @@ button, .shop-now-btn {
     border-radius: 50%;
     transform: scale(0);
     background-color: rgba(255, 255, 255, 0.6);
-    animation: rippleAnimation 0.6s linear;
+    animation: rippleAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 }
 
@@ -1250,7 +1250,7 @@ button, .shop-now-btn {
 
 /* Bounce effect for button clicks */
 .click-bounce {
-    animation: bounceButton 0.3s ease;
+    animation: bounceButton 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes bounceButton {
