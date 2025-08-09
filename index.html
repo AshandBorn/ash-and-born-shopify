@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash & Born – Next Level Hydration</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+    <!-- Moving Banner -->
+    <div class="moving-banner">
+        <div class="moving-text">
+            🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <ul class="nav-menu">
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="when-to-use.html">When to Use</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#more">More</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="logo">ASH & BORN</a>
+            <div class="nav-actions">
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+                <div class="user-icon"><i class="fas fa-user"></i></div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NEXT LEVEL<br>HYDRATION</h1>
+            <a href="shop.html" class="shop-now-btn">SHOP NOW</a>
+        </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section class="best-sellers">
+        <div class="section-header">
+            <h2 class="section-title">BEST SELLERS</h2>
+            <a href="shop.html" class="shop-all-link">SHOP ALL</a>
+        </div>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card fade-in">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="product-image blue">
+                    <div class="product-cylinders">
+                        <div class="cylinder" style="background: #64b5f6;"></div>
+                        <div class="cylinder" style="background: #f06292;"></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">NEW FLAVOUR PACK 10 PACK</h3>
+                    <div class="product-price">58.00 NIS <span class="original-price">69.00 NIS</span></div>
+                    <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card fade-in">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="product-image green">
+                    <div class="product-cylinders">
+                        <div class="cylinder" style="background: #ffb74d;"></div>
+                        <div class="cylinder" style="background: var(--green-secondary);"></div>
+                        <div class="cylinder" style="background: #e57373;"></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">OG FLAVOUR PACK 10 PACK</h3>
+                    <div class="product-price">85.00 NIS <span class="original-price">103.00 NIS</span></div>
+                    <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card fade-in">
+                <div class="product-image green">
+                    <div class="product-cylinders">
+                        <div class="cylinder" style="background: #ffb74d;"></div>
+                        <div class="cylinder" style="background: var(--green-secondary);"></div>
+                        <div class="cylinder" style="background: #f06292;"></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">OG FLAVOUR PACK 30 PACK</h3>
+                    <div class="product-price">172.00 NIS <span class="original-price">185.00 NIS</span></div>
+                    <button class="add-to-cart-btn" onclick="addToCart('OG FLAVOUR PACK 30 PACK', 172.00)">ADD TO CART</button>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card fade-in">
+                <div class="product-image green">
+                    <div class="product-cylinders">
+                        <div class="cylinder" style="background: var(--green-secondary);"></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">LEMON LIME</h3>
+                    <div class="product-price">35.00 NIS — 62.00 NIS</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('LEMON LIME', 35.00)">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <div class="new-arrivals-content">
+            <div class="new-arrivals-text">
+                <h3>NEW ARRIVALS</h3>
+                <h2>WATERMELON</h2>
+                <p>Add a burst of watermelon into your morning, afternoon, and evening drinks and let the juicy flavour invigorate your day.</p>
+                <a href="shop.html" class="shop-now-btn">SHOP NOW</a>
+            </div>
+            <div class="new-arrivals-image">
+                <div class="watermelon-visual">
+                    <div class="watermelon-slice"></div>
+                    <div class="watermelon-slice"></div>
+                    <div class="watermelon-slice"></div>
+                    <div class="product-packet">ASH &<br>BORN</div>
+                    <div class="bubbles"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Section -->
+    <section class="how-to-section">
+        <div class="how-to-banner">ASH & BORN! HOW TO ASH & BORN! HOW TO ASH & BORN! HOW TO ASH & BORN!</div>
+        <div class="steps-container">
+            <div class="step fade-in">
+                <div class="step-image">
+                    <div class="packet"></div>
+                </div>
+                <div class="step-number">STEP 1:</div>
+                <div class="step-description">Pick your favourite ASH & BORN flavour</div>
+            </div>
+            <div class="step fade-in">
+                <div class="step-image">
+                    <div class="glass">
+                        <div class="liquid"></div>
+                    </div>
+                    <div class="packet" style="position: absolute; top: 20px; right: 20px; transform: rotate(45deg) scale(0.6);"></div>
+                </div>
+                <div class="step-number">STEP 2:</div>
+                <div class="step-description">Empty 1 sachet into 200ml of water</div>
+            </div>
+            <div class="step fade-in">
+                <div class="step-image">
+                    <div class="pour-effect">
+                        <div class="stream"></div>
+                        <div class="splash"></div>
+                    </div>
+                </div>
+                <div class="step-number">STEP 3:</div>
+                <div class="step-description">ASH & BORN your hydration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ash & Born</h3>
+                    <p>Premium hydration blends crafted from nature’s finest ingredients to help you rise and thrive every day.</p>
+                    <div class="social-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="when-to-use.html">When to Use</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> info@ashborn.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Wellness St, Health City, HC 12345</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM PST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ash & Born. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
