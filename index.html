@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash & Born – Next Level Hydration</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/bundles-carousel.css">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script defer src="assets/script.js"></script>
+    <script defer src="assets/bundles-carousel.js"></script>
 </head>
 <body>
     <!-- Moving Banner -->
@@ -22,13 +24,16 @@
             <div class="nav-left">
                 <ul class="nav-menu">
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="when-to-use.html">When to Use</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#more">More</a></li>
+                    <li><a href="#bundles">Bundles</a></li>
                 </ul>
             </div>
             <a href="index.html" class="logo">ASH & BORN</a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
             <div class="nav-actions">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
                 <div class="user-icon"><i class="fas fa-user"></i></div>
@@ -54,59 +59,212 @@
         </div>
     </section>
 
-    <!-- Best Sellers Section -->
-    <section class="best-sellers">
-        <div class="section-header">
-            <h2 class="section-title">BEST SELLERS</h2>
-            <a href="shop.html" class="shop-all-link">SHOP ALL</a>
-        </div>
-        <div class="products-grid">
+    <!-- Bundles Carousel Section -->
+    <section class="bundles-carousel" id="bundles">
+      <div class="section-header">
+        <h2 class="section-title">BUNDLES</h2>
+        <a href="shop.html" class="shop-all-link">SHOP ALL</a>
+      </div>
+      
+      <div class="bundles-carousel-container">
+        <!-- Navigation Arrows -->
+        <button class="carousel-nav carousel-nav-prev" aria-label="Previous products">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        
+        <div class="bundles-carousel-track-container">
+          <div class="bundles-carousel-track">
             <!-- Product 1 -->
-            <div class="product-card fade-in">
-                <div class="sold-out-badge">SOLD OUT</div>
-                <div class="product-image">
-                    <img src="assets/blue-raspberry.png" alt="Blue Raspberry" loading="lazy" />
-                </div>
-                <div class="product-info">
+            <div class="bundles-card" data-product-id="1">
+              <div class="bundles-card-inner">
+                <!-- Front of card -->
+                <div class="bundles-card-front">
+                  <div class="sold-out-badge">SOLD OUT</div>
+                  
+                  <div class="product-image">
+                    <img src="assets/blue-raspberry.png" alt="Blue Raspberry" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  
+                  <div class="product-info">
                     <h3 class="product-name">BLUE RASPBERRY</h3>
-                    <div class="product-price">58.00 NIS <span class="original-price">69.00 NIS</span></div>
-                    <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
+                    <div class="product-price">
+                      58.00 NIS
+                      <span class="original-price">69.00 NIS</span>
+                    </div>
+                    
+                    <button class="add-to-cart-btn sold-out-btn" disabled>SOLD OUT</button>
+                  </div>
+                  
+                  <button class="flip-card-btn" aria-label="View ingredients">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
+                
+                <!-- Back of card -->
+                <div class="bundles-card-back">
+                  <div class="ingredients-content">
+                    <h4>Ingredients</h4>
+                    <div class="ingredients-list">
+                      <p>Premium electrolyte blend with natural blue raspberry flavoring, sodium citrate, potassium chloride, magnesium sulfate, and natural fruit extracts for optimal hydration and refreshing taste.</p>
+                    </div>
+                  </div>
+                  
+                  <button class="flip-card-btn flip-back-btn" aria-label="Back to product">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
+            
             <!-- Product 2 -->
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="assets/berry-blast.png" alt="Berry Blast" loading="lazy" />
-                </div>
-                <div class="product-info">
+            <div class="bundles-card" data-product-id="2">
+              <div class="bundles-card-inner">
+                <div class="bundles-card-front">
+                  <div class="product-image">
+                    <img src="assets/berry-blast.png" alt="Berry Blast" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  
+                  <div class="product-info">
                     <h3 class="product-name">BERRY BLAST</h3>
-                    <div class="product-price">85.00 NIS <span class="original-price">103.00 NIS</span></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('BERRY BLAST', 85.00)">ADD TO CART</button>
+                    <div class="product-price">
+                      85.00 NIS
+                      <span class="original-price">103.00 NIS</span>
+                    </div>
+                    
+                    <form class="product-form" action="#" method="post">
+                      <input type="hidden" name="id" value="berry-blast">
+                      <button type="submit" class="add-to-cart-btn">ADD TO CART</button>
+                    </form>
+                  </div>
+                  
+                  <button class="flip-card-btn" aria-label="View ingredients">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
+                
+                <div class="bundles-card-back">
+                  <div class="ingredients-content">
+                    <h4>Ingredients</h4>
+                    <div class="ingredients-list">
+                      <p>Mixed berry electrolyte formula with natural strawberry, blueberry, and raspberry extracts, essential minerals, and vitamin C for antioxidant support and delicious hydration.</p>
+                    </div>
+                  </div>
+                  
+                  <button class="flip-card-btn flip-back-btn" aria-label="Back to product">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
+            
             <!-- Product 3 -->
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="assets/tropical-sunrise.png" alt="Tropical Sunrise" loading="lazy" />
-                </div>
-                <div class="product-info">
+            <div class="bundles-card" data-product-id="3">
+              <div class="bundles-card-inner">
+                <div class="bundles-card-front">
+                  <div class="product-image">
+                    <img src="assets/tropical-sunrise.png" alt="Tropical Sunrise" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  
+                  <div class="product-info">
                     <h3 class="product-name">TROPICAL SUNRISE</h3>
-                    <div class="product-price">172.00 NIS <span class="original-price">185.00 NIS</span></div>
-                    <button class="add-to-cart-btn" onclick="addToCart('TROPICAL SUNRISE', 172.00)">ADD TO CART</button>
+                    <div class="product-price">
+                      172.00 NIS
+                      <span class="original-price">185.00 NIS</span>
+                    </div>
+                    
+                    <form class="product-form" action="#" method="post">
+                      <input type="hidden" name="id" value="tropical-sunrise">
+                      <button type="submit" class="add-to-cart-btn">ADD TO CART</button>
+                    </form>
+                  </div>
+                  
+                  <button class="flip-card-btn" aria-label="View ingredients">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
+                
+                <div class="bundles-card-back">
+                  <div class="ingredients-content">
+                    <h4>Ingredients</h4>
+                    <div class="ingredients-list">
+                      <p>Tropical fruit blend with mango, pineapple, and passion fruit extracts, coconut water powder, electrolytes, and natural sunrise-inspired flavoring for an island escape in every sip.</p>
+                    </div>
+                  </div>
+                  
+                  <button class="flip-card-btn flip-back-btn" aria-label="Back to product">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
+            
             <!-- Product 4 -->
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <img src="assets/lemon-lime.png" alt="Lemon Lime" loading="lazy" />
-                </div>
-                <div class="product-info">
+            <div class="bundles-card" data-product-id="4">
+              <div class="bundles-card-inner">
+                <div class="bundles-card-front">
+                  <div class="product-image">
+                    <img src="assets/lemon-lime.png" alt="Lemon Lime" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  
+                  <div class="product-info">
                     <h3 class="product-name">LEMON LIME</h3>
                     <div class="product-price">35.00 NIS — 62.00 NIS</div>
-                    <button class="add-to-cart-btn" onclick="addToCart('LEMON LIME', 35.00)">ADD TO CART</button>
+                    
+                    <form class="product-form" action="#" method="post">
+                      <input type="hidden" name="id" value="lemon-lime">
+                      <button type="submit" class="add-to-cart-btn">ADD TO CART</button>
+                    </form>
+                  </div>
+                  
+                  <button class="flip-card-btn" aria-label="View ingredients">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
                 </div>
+                
+                <div class="bundles-card-back">
+                  <div class="ingredients-content">
+                    <h4>Ingredients</h4>
+                    <div class="ingredients-list">
+                      <p>Classic citrus electrolyte formula with natural lemon and lime oils, sea salt minerals, potassium citrate, and a refreshing zesty blend perfect for any time hydration.</p>
+                    </div>
+                  </div>
+                  
+                  <button class="flip-card-btn flip-back-btn" aria-label="Back to product">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+        
+        <button class="carousel-nav carousel-nav-next" aria-label="Next products">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Carousel Dots -->
+      <div class="carousel-dots" aria-label="Carousel navigation"></div>
     </section>
 
     <!-- New Arrivals Section -->
