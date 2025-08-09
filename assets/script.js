@@ -225,6 +225,14 @@ function toggleMobileMenu() {
     }
 }
 
+// Close mobile menu
+function closeMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+        navMenu.classList.remove('active');
+    }
+}
+
 // Toggle search overlay input
 function toggleSearch() {
     const existingInput = document.querySelector('.search-overlay');
@@ -395,6 +403,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileToggle) {
         mobileToggle.addEventListener('click', toggleMobileMenu);
     }
+    
+    // Close mobile menu when navigation links are clicked
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const navMenu = document.querySelector('.nav-menu');
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        if (navMenu && navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
     // Search icon toggle
     const searchIcon = document.querySelector('.search-icon');
     if (searchIcon) {

@@ -807,6 +807,17 @@ body {
     .new-arrivals-text p {
         font-size: 1rem !important;
     }
+    
+    /* Smaller logo for mobile */
+    .logo {
+        font-size: 1.5rem !important;
+        letter-spacing: -0.5px !important;
+    }
+    
+    /* Better mobile header spacing */
+    .nav-container {
+        padding: 0.5rem 1rem !important;
+    }
     .steps-container {
         grid-template-columns: 1fr;
         gap: 2rem;
