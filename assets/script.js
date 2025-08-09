@@ -6,22 +6,25 @@
 
 // Smooth scrolling for hash links with proper timing
 document.addEventListener('DOMContentLoaded', function() {
-    // Override smooth scrolling for better control
-    document.querySelectorAll('a[href="#shop"], a[href="/#shop"]').forEach(anchor => {
+    // Handle SHOP NOW buttons (scroll to section on homepage)
+    document.querySelectorAll('a[href="#shop"], a[href="/#shop"], .shop-now-btn').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#shop');
-            if (target) {
-                const headerOffset = 120; // Proper space from header
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                console.log('Scrolling to Best Sellers section'); // Debug log
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+            // Only handle if we're on the homepage and target is #shop
+            if (this.getAttribute('href') === '#shop' || this.getAttribute('href') === '/#shop' || this.classList.contains('shop-now-btn')) {
+                e.preventDefault();
+                const target = document.querySelector('#shop');
+                if (target) {
+                    const headerOffset = 120; // Proper space from header
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    console.log('Scrolling to Best Sellers section'); // Debug log
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
