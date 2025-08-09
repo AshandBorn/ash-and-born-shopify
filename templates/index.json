@@ -1,9 +1,5 @@
 {
   "sections": {
-    "header": {
-      "type": "header-nav",
-      "settings": {}
-    },
     "hero": {
       "type": "hero-video",
       "settings": {}
@@ -16,26 +12,20 @@
       "type": "featured-product",
       "settings": {}
     },
-    "grid": {
-      "type": "collection-grid",
+    "showcase": {
+      "type": "product-showcase",
       "settings": {}
     },
-    "footer": {
-      "type": "footer",
-      "settings": {}
-    },
-    "featured_product": {
-      "type": "featured-product",
+    "ingredients": {
+      "type": "ingredients-section",
       "settings": {}
     }
   },
   "order": [
-    "header",
-    "featured_product",
     "hero",
     "brand",
     "featured",
-    "grid",
-    "footer"
+    "showcase",
+    "ingredients"
   ]
 }

@@ -1,41 +1,30 @@
-
-<section class="featured-product section-animate" style="padding:64px 0;">
-  <div class="container">
-    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
-    {% assign handle = section.settings.product %}
-    {% if handle and all_products[handle] %}
-      {% assign pd = all_products[handle] %}
-      {% assign first_av = pd.selected_or_first_available_variant %}
-      <article class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
-        <div>
-          {% if pd.featured_image %}
-            <img src="{{ pd.featured_image | img_url: '1000x' }}" alt="{{ pd.title }}">
-          {% endif %}
-        </div>
-        <div class="card-body">
-          <h3 style="margin:0 0 8px;font-size:26px">{{ pd.title }}</h3>
-          <div class="price" style="margin:8px 0 16px">{{ first_av.price | money }}</div>
-          <p style="opacity:.85;margin:0 0 16px">{{ pd.description | strip_html | truncate: 200 }}</p>
-          {% if first_av.available %}
-            <button class="btn" data-add-to-cart data-variant-id="{{ first_av.id }}">Add to cart</button>
-          {% else %}
-            <span>Sold out</span>
-          {% endif %}
-        </div>
-      </article>
-    {% else %}
-      <div class="card" style="padding:16px">
-        <p>No product selected. Choose a product in the section settings.</p>
-      </div>
-    {% endif %}
+<section class="section">
+  <div class="container grid" style="grid-template-columns:1fr 1fr">
+    <div>
+      <img src="{{ section.settings.image | image_url: width: 1200 | default: 'product_placeholder.jpg' | asset_url }}" alt="">
+    </div>
+    <div>
+      {% if section.settings.product != blank %}
+        {% assign p = all_products[section.settings.product] %}
+        <h2>{{ p.title }}</h2>
+        <div>{{ p.description | strip_html | truncate: 180 }}</div>
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <button class="button" type="submit">Add to cart – {{ p.price | money }}</button>
+        </form>
+      {% else %}
+        <h2>Featured product</h2>
+        <p>Select a product in the section settings.</p>
+      {% endif %}
+    </div>
   </div>
 </section>
 {% schema %}
 {
   "name": "Featured product",
   "settings": [
-    { "type": "text", "id": "title", "label": "Title", "default": "Featured product" },
-    { "type": "product", "id": "product", "label": "Product" }
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "image_picker", "id": "image", "label": "Image override" }
   ],
   "presets": [{ "name": "Featured product" }]
 }

@@ -1,19 +1,22 @@
-
-<section class="products section-animate" style="padding:64px 0;">
+<section class="section">
   <div class="container">
-    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
-    <div style="display:grid;gap:16px;grid-template-columns: repeat(auto-fit, minmax(240px,1fr))">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="grid grid-3">
       {% for block in section.blocks %}
-        <article style="border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px">
-          <h3 style="margin:0 0 6px">{{ block.settings.title }}</h3>
-          <p style="opacity:.8;margin:0 0 10px">{{ block.settings.subtitle }}</p>
-          {% if block.settings.image %}
-            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.15);margin-bottom:10px">
-          {% endif %}
-          <p style="margin:0 0 10px">{{ block.settings.text }}</p>
-          {% if block.settings.link %}
-            <a href="{{ block.settings.link }}" class="btn">{{ block.settings.label }}</a>
-          {% endif %}
+        {% assign p = all_products[block.settings.product] %}
+        <article class="product-card" {{ block.shopify_attributes }}>
+          <a href="{{ p.url }}">
+            {% if p.featured_image %}
+              <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.title }}">
+            {% else %}
+              <img src="{{ 'product_placeholder.jpg' | asset_url }}" alt="{{ p.title }}">
+            {% endif %}
+          </a>
+          <div class="body">
+            <h3 style="margin:0 0 8px 0">{{ p.title }}</h3>
+            <div style="color:var(--muted);margin-bottom:12px">{{ p.price | money }}</div>
+            <a class="button" href="{{ p.url }}">View product</a>
+          </div>
         </article>
       {% endfor %}
     </div>
@@ -22,17 +25,13 @@
 {% schema %}
 {
   "name": "Product showcase",
-  "settings": [{ "type": "text", "id": "title", "label": "Title", "default": "Day & Night" }],
-  "blocks": [
-    { "type": "item", "name": "Item", "settings": [
-      { "type": "text", "id": "title", "label": "Title", "default": "Day Blend" },
-      { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Focus • Performance" },
-      { "type": "image_picker", "id": "image", "label": "Image" },
-      { "type": "text", "id": "text", "label": "Text", "default": "Electrolytes + nootropics for daytime push." },
-      { "type": "url",  "id": "link", "label": "Link", "default": "/" },
-      { "type": "text", "id": "label", "label": "Button label", "default": "Shop Day" }
-    ]}
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop the lineup" }
   ],
-  "presets": [{ "name": "Product showcase", "blocks": [{ "type": "item" }, { "type": "item", "settings": {"title": "Night Blend", "subtitle": "Calm • Recovery", "label": "Shop Night"}}]}]
+  "blocks": [
+    { "type": "product", "name": "Product", "settings": [{ "type": "product", "id": "product", "label": "Product" }] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "Product showcase", "blocks": [{ "type": "product" },{ "type": "product" },{ "type": "product" }] }]
 }
 {% endschema %}

@@ -1,34 +1,22 @@
-
-<section class="hero-video section-animate">
-  {% if section.settings.video != blank %}
-    <video src="{{ section.settings.video | asset_url }}" autoplay loop muted playsinline></video>
-  {% elsif section.settings.image != blank %}
-    <img src="{{ section.settings.image | image_url: width: 2400 }}" alt="">
+<section class="section hero">
+  {% if section.settings.video_url != blank %}
+    <video autoplay muted loop playsinline poster="{{ 'hero_poster.jpg' | asset_url }}">
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+  {% else %}
+    <img src="{{ 'hero_poster.jpg' | asset_url }}" alt="Ash & Born">
   {% endif %}
-  <div class="hero-overlay">
-    <div class="container">
-      <h1>{{ section.settings.heading }}</h1>
-      <p class="sub">{{ section.settings.subheading }}</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn" href="{{ section.settings.primary_url }}">{{ section.settings.primary_label }}</a>
-        <a class="btn btn--ghost" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary_label }}</a>
-      </div>
-    </div>
-  </div>
+  {% if section.settings.badge != blank %}
+    <div class="badge" style="position:absolute;top:16px;left:16px">{{ section.settings.badge }}</div>
+  {% endif %}
 </section>
 {% schema %}
 {
-  "name": "Video / Image hero",
+  "name": "Hero (video or image)",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Daily clarity. Nightly recovery." },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Electrolytes for day & night. Clean, effective, honest." },
-    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Hydration" },
-    { "type": "url",  "id": "primary_url",   "label": "Primary button URL", "default": "/" },
-    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Sleep" },
-    { "type": "url",  "id": "secondary_url",   "label": "Secondary button URL", "default": "/" },
-    { "type": "text", "id": "video", "label": "Video filename in Assets (e.g., hero.mp4)", "default": "hero.mp4" },
-    { "type": "image_picker", "id": "image", "label": "Fallback image" }
+    { "type": "url", "id": "video_url", "label": "MP4 video URL" },
+    { "type": "text", "id": "badge", "label": "Badge text", "default": "Fight Your Demons" }
   ],
-  "presets": [{ "name": "Video / Image hero" }]
+  "presets": [{ "name": "Hero — Video" }]
 }
 {% endschema %}

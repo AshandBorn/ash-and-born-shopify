@@ -3,10 +3,15 @@
     "name": "Theme settings",
     "settings": [
       {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
         "type": "color",
-        "id": "accent",
-        "label": "Accent color",
-        "default": "#eab308"
+        "id": "brand_color",
+        "label": "Brand color",
+        "default": "#111111"
       }
     ]
   }

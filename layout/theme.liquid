@@ -1,15 +1,15 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% if page_title %}{{ page_title }} – {% endif %}{{ shop.name }}</title>
     {{ content_for_header }}
     <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
+    <title>{{ page_title }} · {{ shop.name }}</title>
   </head>
-  <body>
-    <main id="MainContent" role="main">
+  <body class="ash-born">
+    {% section 'header' %}
+    <main id="MainContent">
       {{ content_for_layout }}
     </main>
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
