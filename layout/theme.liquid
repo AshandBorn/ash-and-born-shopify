@@ -24,20 +24,28 @@
         <nav class="nav-container">
             <div class="nav-left">
                 <ul class="nav-menu">
-                    <li><a href="/collections/all">Shop</a></li>
-                    <li><a href="/pages/about">About</a></li>
-                    <li><a href="/pages/when-to-use">When to Use</a></li>
-                    <li><a href="/pages/contact">Contact</a></li>
-                    <li><a href="/pages/payment">Payment</a></li>
+                    {% comment %} Try to use Shopify menu system first {% endcomment %}
+                    {% if linklists['main-menu'].links.size > 0 %}
+                        {% for link in linklists['main-menu'].links limit: 5 %}
+                            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endfor %}
+                    {% else %}
+                        {% comment %} Fallback to manual navigation {% endcomment %}
+                        <li><a href="{{ routes.collections_url }}/all">Shop</a></li>
+                        {% if pages['about'] %}<li><a href="{{ pages['about'].url }}">About</a></li>{% endif %}
+                        {% if pages['when-to-use'] %}<li><a href="{{ pages['when-to-use'].url }}">When to Use</a></li>{% endif %}
+                        {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
+                        {% if pages['payment'] %}<li><a href="{{ pages['payment'].url }}">Payment</a></li>{% endif %}
+                    {% endif %}
                 </ul>
             </div>
             <a href="/" class="logo">ASH & BORN</a>
             <div class="nav-actions">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
-                <a href="/account" class="user-icon"><i class="fas fa-user"></i></a>
-                <a href="/cart" class="cart-icon">
+                <a href="{{ routes.account_url }}" class="user-icon"><i class="fas fa-user"></i></a>
+                <a href="{{ routes.cart_url }}" class="cart-icon">
                     <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">0</span>
+                    <span class="cart-count">{{ cart.item_count }}</span>
                 </a>
                 <div class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -65,11 +73,11 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/collections/all">Shop</a></li>
-                        <li><a href="/pages/about">About</a></li>
-                        <li><a href="/pages/when-to-use">When to Use</a></li>
-                        <li><a href="/pages/contact">Contact</a></li>
-                        <li><a href="/pages/payment">Payment</a></li>
+                        <li><a href="{{ routes.collections_url }}/all">Shop</a></li>
+                        {% if pages['about'] %}<li><a href="{{ pages['about'].url }}">About</a></li>{% endif %}
+                        {% if pages['when-to-use'] %}<li><a href="{{ pages['when-to-use'].url }}">When to Use</a></li>{% endif %}
+                        {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
+                        {% if pages['payment'] %}<li><a href="{{ pages['payment'].url }}">Payment</a></li>{% endif %}
                     </ul>
                 </div>
                 <div class="footer-section">
