@@ -1,0 +1,31 @@
+{% comment %}
+  Image fallback snippet with responsive placeholder support
+  
+  Parameters:
+  - image: Image object (can be nil)
+  - alt: Alt text (string, defaults to shop.name)
+  - ratio: Aspect ratio (string, default '16/9')
+  - placeholder: Placeholder type (string, default 'image')
+  
+  Usage:
+  {% render 'image-fallback', image: product.featured_image, alt: product.title, ratio: '1/1', placeholder: 'product-2' %}
+{% endcomment %}
+
+{%- liquid
+  assign ratio = ratio | default: '16/9'
+  assign placeholder = placeholder | default: 'image'
+  assign alt_text = alt | default: shop.name
+-%}
+
+<div class="relative overflow-hidden w-full" style="aspect-ratio: {{ ratio }}">
+  {% if image %}
+    {{- image | image_url: width: 1600 | image_tag: 
+        alt: alt_text,
+        loading: 'lazy',
+        decoding: 'async',
+        class: 'w-full h-full object-cover'
+    -}}
+  {% else %}
+    {{- placeholder | placeholder_svg_tag: 'w-full h-full object-cover bg-neutral-100 text-neutral-400' -}}
+  {% endif %}
+</div>
