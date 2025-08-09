@@ -1,6 +1,7 @@
 {
-  "current": "Default",
-  "theme_settings": {
-    "accent": "#eab308"
+  "current": {
+    "theme_settings": {
+      "accent": "#eab308"
+    }
   }
 }

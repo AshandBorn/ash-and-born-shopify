@@ -15,12 +15,17 @@
     "ingredients": {
       "type": "ingredients-section",
       "settings": {}
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "brand",
     "products",
-    "ingredients"
+    "ingredients",
+    "footer"
   ]
 }

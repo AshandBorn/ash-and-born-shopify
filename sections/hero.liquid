@@ -1,4 +1,3 @@
-
 <section class="hero" style="padding:64px 0;text-align:center">
   <div class="container">
     <h1 style="font-size:clamp(28px,5vw,56px);margin:0 0 12px">{{ section.settings.heading }}</h1>
@@ -13,6 +12,7 @@
     </div>
   </div>
 </section>
+
 {% schema %}
 {
   "name": "Hero",
@@ -20,10 +20,10 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Fight Your Demons — Hydrate, Focus, Repeat." },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Day & Night electrolytes to power everyday battles." },
     { "type": "text", "id": "sleep_label", "label": "Sleep button label", "default": "Sleep" },
-    { "type": "url",  "id": "sleep_url",   "label": "Sleep button URL", "default": "" },
+    { "type": "url",  "id": "sleep_url",   "label": "Sleep button URL", "default": "/collections/sleep" },
     { "type": "text", "id": "hydration_label", "label": "Hydration button label", "default": "Hydration" },
-    { "type": "url",  "id": "hydration_url",   "label": "Hydration button URL", "default": "" },
-    { "type": "url",  "id": "subscribe_url",   "label": "Subscribe URL", "default": "" }
+    { "type": "url",  "id": "hydration_url",   "label": "Hydration button URL", "default": "/collections/hydration" },
+    { "type": "url",  "id": "subscribe_url",   "label": "Subscribe URL", "default": "/#subscribe" }
   ],
   "presets": [{ "name": "Hero" }]
 }
