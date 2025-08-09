@@ -55,14 +55,17 @@ body {
     top: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 0 0 30px 30px;
+    /* Reduce the curvature of the sticky header */
+    border-radius: 0 0 20px 20px;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    margin: 2rem 4rem 0 4rem;
+    /* Make the sticky header more compact on desktop */
+    margin: 1rem 2rem 0 2rem;
 }
 
 .nav-container {
-    padding: 1.5rem 3rem;
+    /* Reduce padding to make the header slimmer */
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,8 +96,9 @@ body {
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: 900;
+    /* Slightly smaller logo in the slim header */
+    font-size: 2rem;
+    font-weight: 800;
     color: var(--dark-text);
     text-decoration: none;
     letter-spacing: -1px;
@@ -144,6 +148,7 @@ body {
 
 /* Hero Section */
 .hero {
+    /* Background gradient provides a fallback behind the hero image */
     background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-secondary) 100%);
     min-height: 80vh;
     display: flex;
@@ -172,12 +177,67 @@ body {
     max-width: 800px;
 }
 
+/* Dark overlay on the hero image to improve text contrast */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
 .hero h1 {
     font-size: 5rem;
     font-weight: 900;
     margin-bottom: 1rem;
     letter-spacing: -2px;
     line-height: 0.9;
+}
+
+/* Product representation in hero */
+.hero-product {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 2rem;
+    z-index: 1;
+    pointer-events: none; /* ensure clicks pass through to buttons */
+}
+
+.hero-cylinder {
+    position: relative;
+    width: 80px;
+    height: 240px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: heroFloat 6s ease-in-out infinite;
+}
+.hero-cylinder::before {
+    content: 'ASH & BORN';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.8);
+    white-space: nowrap;
+}
+.hero-cylinder.blue { background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%); }
+.hero-cylinder.green { background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-secondary) 100%); }
+.hero-cylinder.pink { background: linear-gradient(135deg, #f06292 0%, #c2185b 100%); }
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
 }
 
 .shop-now-btn {
@@ -685,6 +745,40 @@ body {
     .products-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Interactive button effects */
+button, .shop-now-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ripple element appended by JavaScript */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Bounce animation for clicked elements */
+.click-bounce {
+    animation: clickBounce 0.3s ease;
+}
+
+@keyframes clickBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.96); }
+    100% { transform: scale(1); }
 }
 
 /* Animations */

@@ -238,4 +238,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initLoader();
     // Generate bubbles periodically if bubble container exists
     setInterval(createBubble, 2000);
+
+    // Initialize interactive click animations for buttons
+    initClickableAnimations();
 });
+
+/**
+ * Adds ripple and bounce effects to buttons when clicked.
+ */
+function initClickableAnimations() {
+    const clickableButtons = document.querySelectorAll('.add-to-cart-btn, .shop-now-btn');
+    clickableButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // create ripple effect
+            createRipple(e, btn);
+            // add bounce animation class
+            btn.classList.add('click-bounce');
+            setTimeout(() => {
+                btn.classList.remove('click-bounce');
+            }, 300);
+        });
+    });
+}
+
+/**
+ * Creates a ripple element at the click position inside a target element.
+ * @param {MouseEvent} e - The click event
+ * @param {HTMLElement} element - The target element
+ */
+function createRipple(e, element) {
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 2;
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    element.appendChild(ripple);
+    // Remove the ripple after the animation finishes
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
