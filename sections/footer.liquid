@@ -1,66 +1,23 @@
-{% comment %}
-  Ash & Born Footer
-  Contains copyright and navigation links.
-{% endcomment %}
-<footer class="site-footer">
-  <div>{{ section.settings.copyright }}</div>
-  <div>
-    {% for link in section.blocks %}
-      <a href="{{ link.settings.url }}">{{ link.settings.label }}</a>
-    {% endfor %}
+
+<footer style="border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding:24px 0">
+  <div class="container" style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <div>© {{ 'now' | date: '%Y' }} Ash &amp; Born</div>
+    <nav style="display:flex;gap:12px;flex-wrap:wrap">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.url }}">{{ block.settings.label }}</a>
+      {% endfor %}
+    </nav>
   </div>
 </footer>
-
 {% schema %}
 {
   "name": "Footer",
-  "settings": [
-    {
-      "type": "text",
-      "id": "copyright",
-      "label": "Copyright text",
-      "default": "© {{ 'now' | date: '%Y' }} Ash & Born"
-    }
-  ],
   "blocks": [
-    {
-      "type": "link",
-      "name": "Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Link label",
-          "default": "About"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "URL",
-          "default": "/pages/about"
-        }
-      ]
-    }
+    { "type": "link", "name": "Link", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Privacy" },
+      { "type": "url",  "id": "url",   "label": "URL", "default": "" }
+    ]}
   ],
-  "max_blocks": 5,
-  "presets": [
-    {
-      "name": "Footer",
-      "blocks": [
-        {
-          "type": "link",
-          "settings": {"label": "About", "url": "/pages/about"}
-        },
-        {
-          "type": "link",
-          "settings": {"label": "FAQ", "url": "/pages/faq"}
-        },
-        {
-          "type": "link",
-          "settings": {"label": "Privacy", "url": "/pages/privacy"}
-        }
-      ]
-    }
-  ]
+  "presets": [{ "name": "Footer", "blocks": [{ "type": "link" }, { "type": "link", "settings": { "label": "FAQ" } }] }]
 }
 {% endschema %}

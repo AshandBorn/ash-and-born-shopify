@@ -1,6 +1,6 @@
 {
-  "current": {
-    "blocks": {},
-    "presets": {}
+  "current": "Default",
+  "theme_settings": {
+    "accent": "#eab308"
   }
 }

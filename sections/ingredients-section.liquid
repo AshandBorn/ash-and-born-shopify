@@ -1,85 +1,27 @@
-{% comment %}
-  Ingredients Section
-  Lists key ingredients with descriptions.
-{% endcomment %}
-<section class="ingredients-section">
-  <h2>{{ section.settings.heading }}</h2>
-  <p>{{ section.settings.subheading }}</p>
-  <div class="ingredients-grid">
-    {% for block in section.blocks %}
-      <div class="ingredient-item">
-        <h4>{{ block.settings.title }}</h4>
-        <p>{{ block.settings.description }}</p>
-      </div>
-    {% endfor %}
+
+<section class="ingredients">
+  <div class="container">
+    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
+    <div style="display:grid;gap:12px;grid-template-columns: repeat(auto-fit, minmax(220px,1fr))">
+      {% for block in section.blocks %}
+        <article style="border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px">
+          <h3 style="margin:0 0 6px">{{ block.settings.name }}</h3>
+          <p style="opacity:.8;margin:0">{{ block.settings.desc }}</p>
+        </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Ingredients",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Inside the blend"
-    },
-    {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Each ingredient is meticulously chosen for optimal performance and calm."
-    }
-  ],
+  "settings": [{ "type": "text", "id": "title", "label": "Title", "default": "Inside the blend" }],
   "blocks": [
-    {
-      "type": "ingredient",
-      "name": "Ingredient",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Ingredient name",
-          "default": "Electrolytes"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Essential minerals to hydrate and support recovery."
-        }
-      ]
-    }
+    { "type": "ing", "name": "Ingredient", "settings": [
+      { "type": "text", "id": "name", "label": "Name", "default": "Magnesium" },
+      { "type": "text", "id": "desc", "label": "Description", "default": "Supports muscle function & calm." }
+    ]}
   ],
-  "max_blocks": 8,
-  "presets": [
-    {
-      "name": "Ingredients",
-      "blocks": [
-        {
-          "type": "ingredient",
-          "settings": {
-            "title": "Electrolytes",
-            "description": "Essential minerals to hydrate and support recovery."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "title": "Adaptogens",
-            "description": "Herbs that help manage stress and support rest."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "title": "Flavor blends",
-            "description": "Thoughtfully crafted natural flavors."
-          }
-        }
-      ]
-    }
-  ]
+  "presets": [{ "name": "Ingredients", "blocks": [{ "type": "ing" }, { "type": "ing", "settings": {"name": "Potassium", "desc": "Electrolyte balance."}}]}]
 }
 {% endschema %}

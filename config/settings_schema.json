@@ -1,6 +1,13 @@
 [
   {
-    "name": "General settings",
-    "settings": []
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "accent",
+        "label": "Accent color",
+        "default": "#eab308"
+      }
+    ]
   }
 ]

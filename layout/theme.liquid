@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page_title }} – {{ shop.name }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% if page_title %}{{ page_title }} – {% endif %}Ash & Born</title>
     {{ content_for_header }}
-    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}" />
-    <!-- Fonts -->
+    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
   </head>
-  <body class="theme-body">
-    {{ content_for_layout }}
-    {{ content_for_footer }}
+  <body>
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
   </body>
 </html>

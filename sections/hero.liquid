@@ -1,63 +1,30 @@
-{% comment %}
-  Ash & Born Hero Section
-  Large banner with background image and CTAs.
-{% endcomment %}
-<section class="hero-section">
-  <img class="hero-bg" src="{{ 'hero.png' | asset_url }}" alt="Hero background" />
-  <div class="hero-cta">
-    <div class="hero-buttons">
-      <button class="hero-btn sleep" onclick="location.href='{{ section.settings.sleep_url }}'">
-        <span>{{ section.settings.sleep_label }}</span>
-      </button>
-      <button class="hero-btn hydration" onclick="location.href='{{ section.settings.hydration_url }}'">
-        <span>{{ section.settings.hydration_label }}</span>
-      </button>
+
+<section class="hero" style="padding:64px 0;text-align:center">
+  <div class="container">
+    <h1 style="font-size:clamp(28px,5vw,56px);margin:0 0 12px">{{ section.settings.heading }}</h1>
+    <p style="opacity:.8;margin:0 0 16px">{{ section.settings.subheading }}</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      {% if section.settings.sleep_label != blank %}
+        <a class="btn" href="{{ section.settings.sleep_url }}">{{ section.settings.sleep_label }}</a>
+      {% endif %}
+      {% if section.settings.hydration_label != blank %}
+        <a class="btn" href="{{ section.settings.hydration_url }}">{{ section.settings.hydration_label }}</a>
+      {% endif %}
     </div>
-    <button class="hero-subscribe-btn" onclick="location.href='{{ section.settings.subscribe_url }}'">
-      Subscribe
-    </button>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Hero",
   "settings": [
-    {
-      "type": "text",
-      "id": "sleep_label",
-      "label": "Sleep button label",
-      "default": "Shop Sleep"
-    },
-    {
-      "type": "url",
-      "id": "sleep_url",
-      "label": "Sleep button URL",
-      "default": "/collections/sleep"
-    },
-    {
-      "type": "text",
-      "id": "hydration_label",
-      "label": "Hydration button label",
-      "default": "Shop Hydration"
-    },
-    {
-      "type": "url",
-      "id": "hydration_url",
-      "label": "Hydration button URL",
-      "default": "/collections/hydration"
-    },
-    {
-      "type": "url",
-      "id": "subscribe_url",
-      "label": "Subscribe button URL",
-      "default": "/pages/subscribe"
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Fight Your Demons — Hydrate, Focus, Repeat." },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Day & Night electrolytes to power everyday battles." },
+    { "type": "text", "id": "sleep_label", "label": "Sleep button label", "default": "Sleep" },
+    { "type": "url",  "id": "sleep_url",   "label": "Sleep button URL", "default": "" },
+    { "type": "text", "id": "hydration_label", "label": "Hydration button label", "default": "Hydration" },
+    { "type": "url",  "id": "hydration_url",   "label": "Hydration button URL", "default": "" },
+    { "type": "url",  "id": "subscribe_url",   "label": "Subscribe URL", "default": "" }
   ],
-  "presets": [
-    {
-      "name": "Hero"
-    }
-  ]
+  "presets": [{ "name": "Hero" }]
 }
 {% endschema %}

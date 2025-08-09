@@ -1,5 +1,7 @@
 {
   "general": {
-    "newsletter_button": "Subscribe"
+    "password_page": {
+      "opening_soon": "Opening soon"
+    }
   }
 }

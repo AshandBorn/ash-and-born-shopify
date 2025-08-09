@@ -1,0 +1,38 @@
+
+<section class="products">
+  <div class="container">
+    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
+    <div style="display:grid;gap:16px;grid-template-columns: repeat(auto-fit, minmax(240px,1fr))">
+      {% for block in section.blocks %}
+      <article style="border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px">
+        <h3 style="margin:0 0 6px">{{ block.settings.title }}</h3>
+        <p style="opacity:.8;margin:0 0 10px">{{ block.settings.subtitle }}</p>
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.15);margin-bottom:10px">
+        {% endif %}
+        <p style="margin:0 0 10px">{{ block.settings.text }}</p>
+        {% if block.settings.link %}
+          <a href="{{ block.settings.link }}" class="btn">{{ block.settings.label }}</a>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product showcase",
+  "settings": [{ "type": "text", "id": "title", "label": "Title", "default": "Day & Night" }],
+  "blocks": [
+    { "type": "item", "name": "Item", "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Day Blend" },
+      { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Focus • Performance" },
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "text", "label": "Text", "default": "Electrolytes + nootropics for daytime push." },
+      { "type": "url",  "id": "link", "label": "Link", "default": "" },
+      { "type": "text", "id": "label", "label": "Button label", "default": "Shop Day" }
+    ]}
+  ],
+  "presets": [{ "name": "Product showcase", "blocks": [{ "type": "item" }, { "type": "item", "settings": {"title": "Night Blend", "subtitle": "Calm • Recovery", "label": "Shop Night"}}]}]
+}
+{% endschema %}
