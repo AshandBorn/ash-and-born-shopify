@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Mixed Berry 30 Pack
+  Describes the Mixed Berry flavour with benefits and nutrition details.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--pink-primary) 0%, #9c27b0 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Mixed Berry 30 Pack</h1>
+    <p>A harmonious blend of berries for sustained hydration</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Mixed Berry 30 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Mixed Berry combines raspberries, blackberries and blueberries into a balanced flavour profile that’s never too sweet. Our 30‑pack supplies you with a month of hydration tailored for performance and recovery.</p>
+      <h3>Price: 180.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Mixed Berry 30 Pack', 180.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Complex berry flavour from a mix of natural extracts</li>
+    <li>30 sachets for long‑term hydration needs</li>
+    <li>Electrolyte blend supports endurance, recovery and focus</li>
+    <li>Zero sugar and naturally sweetened</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 460&nbsp;mg sodium, 195&nbsp;mg potassium and 105&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural berry flavours, citric acid, stevia extract.</p>
+</section>

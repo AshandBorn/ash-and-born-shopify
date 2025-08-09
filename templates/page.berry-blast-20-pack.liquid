@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Berry Blast 20 Pack
+  Presents detailed information about the Berry Blast flavour with imagery, description, features and nutrition facts.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--blue-primary) 0%, var(--pink-primary) 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Berry Blast 20 Pack</h1>
+    <p>A vibrant fusion of berries for all‑day energy</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Berry Blast 20 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Berry Blast delivers a sweet‑tart blend of berry flavours with a balanced mix of electrolytes to keep you powered through long days. This 20‑pack gives you twice the servings for extra value and convenience.</p>
+      <h3>Price: 110.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Berry Blast 20 Pack', 110.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>20 sachets per box – plenty for your weekly hydration routine</li>
+    <li>Delicious berry blend made from natural fruit flavours</li>
+    <li>Balanced electrolytes for sustained energy and focus</li>
+    <li>No sugar, no artificial sweeteners</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 450&nbsp;mg sodium, 200&nbsp;mg potassium and 100&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural berry flavours, citric acid, stevia extract.</p>
+</section>

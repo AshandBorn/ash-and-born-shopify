@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Blue Raspberry 20 Pack
+  Outlines the Blue Raspberry flavour and its benefits, with nutrition facts.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--blue-primary) 0%, #6a1b9a 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Blue Raspberry 20 Pack</h1>
+    <p>Cool and tangy raspberry hydration</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Blue Raspberry 20 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Blue Raspberry brings a cool, tangy burst of raspberry flavour balanced with electrolytes for all‑day hydration. This 20‑pack gives you two weeks’ worth of flavourful sips for workouts and workdays alike.</p>
+      <h3>Price: 120.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Blue Raspberry 20 Pack', 120.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Vibrant blue raspberry flavour made from natural extracts</li>
+    <li>20 single‑serve sachets – ideal for two weeks of hydration</li>
+    <li>Balanced electrolytes and antioxidants</li>
+    <li>Free from sugar and artificial colours</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 470&nbsp;mg sodium, 185&nbsp;mg potassium and 95&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural raspberry flavour, citric acid, stevia extract.</p>
+</section>

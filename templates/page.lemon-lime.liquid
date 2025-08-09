@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Lemon Lime
+  Details the Lemon Lime flavour with nutritional information and key selling points.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--green-primary) 0%, #cddc39 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Lemon Lime</h1>
+    <p>Crisp and zesty – the perfect daily sip</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Lemon Lime">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Our Lemon Lime flavour delivers a crisp, zesty sip that tastes just like your favourite citrus sodas but without the sugar. A balanced electrolyte profile helps you stay energized and hydrated anytime.</p>
+      <h3>Price: 35.00&nbsp;–&nbsp;62.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Lemon Lime', 35.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Crisp lemon and lime flavour with natural extracts</li>
+    <li>Flexible sizing – choose from 10‑pack or 30‑pack options</li>
+    <li>Electrolyte profile designed for everyday hydration</li>
+    <li>Zero sugar and no artificial additives</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 450&nbsp;mg sodium, 180&nbsp;mg potassium and 120&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural lemon and lime flavours, citric acid, stevia extract.</p>
+</section>

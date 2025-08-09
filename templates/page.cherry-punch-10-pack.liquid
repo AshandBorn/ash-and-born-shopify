@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Cherry Punch 10 Pack
+  Provides details on the Cherry Punch flavour with its benefits and nutrition.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--red-primary) 0%, var(--pink-primary) 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Cherry Punch 10 Pack</h1>
+    <p>Bold cherry flavour with a tangy kick</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Cherry Punch 10 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Cherry Punch packs a punch of bold cherry flavour balanced with electrolytes to keep you hydrated during intense workouts or busy days. Each 10‑pack is perfect for trying out this bestselling blend.</p>
+      <h3>Price: 48.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Cherry Punch 10 Pack', 48.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Deep cherry flavour sourced from natural extracts</li>
+    <li>Perfect sampler size with 10 servings per box</li>
+    <li>Balanced electrolytes for sustained energy</li>
+    <li>Free from sugar and artificial sweeteners</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 450&nbsp;mg sodium, 190&nbsp;mg potassium and 90&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural cherry flavour, citric acid, stevia extract.</p>
+</section>

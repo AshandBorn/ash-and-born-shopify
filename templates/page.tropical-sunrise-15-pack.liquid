@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Tropical Sunrise 15 Pack
+  Explains the Tropical Sunrise flavour, its benefits and nutrition facts.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--orange-primary) 0%, var(--pink-primary) 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Tropical Sunrise 15 Pack</h1>
+    <p>A tropical medley to start your day right</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Tropical Sunrise 15 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Tropical Sunrise blends pineapple, mango and passionfruit flavours for a sweet start to your morning. Each 15‑pack is perfect for two weeks of daily hydration that tastes like a beach vacation.</p>
+      <h3>Price: 90.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Tropical Sunrise 15 Pack', 90.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Exotic tropical fruit flavours from natural extracts</li>
+    <li>15 servings – perfect for a fortnight of hydration</li>
+    <li>Balanced electrolytes to support energy, focus and recovery</li>
+    <li>Sugar‑free and vegan‑friendly</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 430&nbsp;mg sodium, 175&nbsp;mg potassium and 95&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural tropical fruit flavours, citric acid, stevia extract.</p>
+</section>

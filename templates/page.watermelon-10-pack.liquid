@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Watermelon 10 Pack
+  Presents detailed information about the Watermelon 10 Pack flavour with imagery, description, features and nutrition facts.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--green-primary) 0%, var(--pink-primary) 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Watermelon 10 Pack</h1>
+    <p>Juicy hydration with a burst of watermelon flavour</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Watermelon 10 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Our Watermelon blend delivers crisp hydration with natural watermelon essence and a balanced mix of electrolytes. Each 10‑pack contains single‑serving sachets so you can stay refreshed wherever you are.</p>
+      <h3>Price: 58.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Watermelon 10 Pack', 58.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Zero sugar, zero artificial colours</li>
+    <li>Rich in sodium, potassium and magnesium for optimal hydration</li>
+    <li>Juicy natural watermelon flavour</li>
+    <li>Convenient single‑serve sachets</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 500&nbsp;mg sodium, 200&nbsp;mg potassium and 100&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural watermelon flavour, citric acid, stevia extract.</p>
+</section>

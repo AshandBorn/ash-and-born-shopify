@@ -1,0 +1,53 @@
+{% comment %}
+  Template: Product page for Citrus Splash 30 Pack
+  Provides details and nutrition info for the Citrus Splash flavour with 30 sachets.
+{% endcomment %}
+
+<!-- Product Hero -->
+<section class="product-hero" style="background: linear-gradient(135deg, var(--orange-primary) 0%, #ffd54f 100%);">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Citrus Splash 30 Pack</h1>
+    <p>Invigorating citrus for a refreshing pick‑me‑up</p>
+  </div>
+</section>
+
+<!-- Product Details -->
+<section class="product-details">
+  <div class="product-details-container">
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Citrus Splash 30 Pack">
+    </div>
+    <div class="product-info">
+      <h2>Description</h2>
+      <p>Citrus Splash combines tangy orange and lemon notes with electrolytes to keep you refreshed after a tough workout or a long day in the sun. This 30‑pack provides a month’s worth of hydration on the go.</p>
+      <h3>Price: 172.00&nbsp;NIS</h3>
+      <button class="add-to-cart-btn" onclick="addToCart('Citrus Splash 30 Pack', 172.00)">ADD TO CART</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Features -->
+<section class="product-features">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Bright citrus flavour made from natural orange and lemon extracts</li>
+    <li>30 single‑serve sachets – perfect for everyday hydration</li>
+    <li>Electrolyte blend designed for endurance and recovery</li>
+    <li>Zero sugar, gluten‑free and vegan‑friendly</li>
+  </ul>
+</section>
+
+<!-- Product Video -->
+<section class="product-video">
+  <h2>See It In Action</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lh2vc6lc1Do" title="Science of Hydration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Product Nutrition -->
+<section class="product-nutrition">
+  <h2>Nutrition &amp; Ingredients</h2>
+  <p>Each serving contains 480&nbsp;mg sodium, 210&nbsp;mg potassium and 90&nbsp;mg magnesium. Ingredients: sea salt, potassium citrate, magnesium malate, natural citrus flavours, citric acid, stevia extract.</p>
+</section>

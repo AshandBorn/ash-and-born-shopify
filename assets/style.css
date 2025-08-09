@@ -376,6 +376,17 @@ body {
     text-transform: uppercase;
 }
 
+/* Allow product names to be clickable links to product pages */
+.product-name a {
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product-name a:hover {
+    color: var(--green-primary);
+}
+
 .product-price {
     font-size: 1.3rem;
     font-weight: bold;
@@ -779,6 +790,147 @@ button, .shop-now-btn {
     0% { transform: scale(1); }
     50% { transform: scale(0.96); }
     100% { transform: scale(1); }
+}
+
+/* Product page styles */
+.product-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.product-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.product-hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.product-hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.product-hero p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.product-details {
+    padding: 4rem 2rem;
+}
+
+.product-details-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.product-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--green-dark);
+}
+
+.product-features,
+.product-video,
+.product-nutrition {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.product-features h2,
+.product-video h2,
+.product-nutrition h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--dark-text);
+}
+
+.product-features ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--light-text);
+}
+
+.product-features ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.product-features ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--green-dark);
+}
+
+.product-video .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.product-video .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.product-nutrition p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--light-text);
 }
 
 /* Animations */
