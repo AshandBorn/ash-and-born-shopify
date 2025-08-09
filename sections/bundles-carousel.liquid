@@ -1,0 +1,158 @@
+<!-- Bundles Carousel Section -->
+<section class="bundles-carousel" id="bundles">
+  <div class="section-header">
+    <h2 class="section-title">{{ section.settings.title | default: 'BUNDLES' }}</h2>
+    <a href="{{ section.settings.collection.url | default: '/collections/all' }}" class="shop-all-link">SHOP ALL</a>
+  </div>
+  
+  <div class="bundles-carousel-container">
+    <!-- Navigation Arrows -->
+    <button class="carousel-nav carousel-nav-prev" aria-label="Previous products">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    
+    <div class="bundles-carousel-track-container">
+      <div class="bundles-carousel-track">
+        {% comment %} Get products from selected collection or use featured products {% endcomment %}
+        {% if section.settings.collection != blank %}
+          {% assign bundle_products = section.settings.collection.products %}
+        {% else %}
+          {% comment %} Fallback to manually selected products or featured products {% endcomment %}
+          {% assign bundle_products = collections.featured-products.products | default: collections.all.products %}
+        {% endif %}
+
+        {% comment %} Limit to 8 products for performance {% endcomment %}
+        {% assign bundle_products = bundle_products | limit: 8 %}
+        
+        {% for product in bundle_products %}
+          <div class="bundles-card" data-product-id="{{ product.id }}">
+            <div class="bundles-card-inner">
+              <!-- Front of card -->
+              <div class="bundles-card-front">
+                {% if product.available == false %}
+                  <div class="sold-out-badge">SOLD OUT</div>
+                {% endif %}
+                
+                <div class="product-image">
+                  {% render 'image-fallback', 
+                      image: product.featured_image, 
+                      alt: product.title, 
+                      ratio: '1/1', 
+                      placeholder: 'product-2' %}
+                </div>
+                
+                <div class="product-info">
+                  <h3 class="product-name">{{ product.title }}</h3>
+                  <div class="product-price">
+                    {{ product.price | money }}
+                    {% if product.compare_at_price > product.price %}
+                      <span class="original-price">{{ product.compare_at_price | money }}</span>
+                    {% endif %}
+                  </div>
+                  
+                  {% if product.available %}
+                    <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      <button type="submit" class="add-to-cart-btn">ADD TO CART</button>
+                    </form>
+                  {% else %}
+                    <button class="add-to-cart-btn sold-out-btn" disabled>SOLD OUT</button>
+                  {% endif %}
+                </div>
+                
+                <button class="flip-card-btn" aria-label="View ingredients">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Back of card -->
+              <div class="bundles-card-back">
+                <div class="ingredients-content">
+                  <h4>Ingredients</h4>
+                  
+                  {% comment %} Try to get ingredients from metafields first {% endcomment %}
+                  {% if product.metafields.custom.ingredients != blank %}
+                    <div class="ingredients-list">
+                      {{ product.metafields.custom.ingredients }}
+                    </div>
+                  {% elsif product.metafields.nutrition.ingredients != blank %}
+                    <div class="ingredients-list">
+                      {{ product.metafields.nutrition.ingredients }}
+                    </div>
+                  {% else %}
+                    {% comment %} Fallback to product description or generic ingredients {% endcomment %}
+                    <div class="ingredients-list">
+                      {% if product.description != blank %}
+                        {{ product.description | strip_html | truncate: 150 }}
+                      {% else %}
+                        <p>Premium electrolyte blend with natural flavoring, sodium citrate, potassium chloride, magnesium sulfate, and natural fruit extracts for optimal hydration.</p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+                
+                <button class="flip-card-btn flip-back-btn" aria-label="Back to product">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <button class="carousel-nav carousel-nav-next" aria-label="Next products">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Carousel Dots -->
+  <div class="carousel-dots" aria-label="Carousel navigation"></div>
+</section>
+
+{{ 'bundles-carousel.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bundles-carousel.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Bundles Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "BUNDLES"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select a collection to display products from. If none selected, featured products will be shown."
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "label": "Products to show",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundles Carousel"
+    }
+  ]
+}
+{% endschema %}

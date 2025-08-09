@@ -8,52 +8,8 @@
     </div>
 </section>
 
-<!-- Best Sellers Section -->
-<section class="best-sellers" id="shop">
-    <div class="section-header">
-        <h2 class="section-title">BEST SELLERS</h2>
-        <a href="/collections/all" class="shop-all-link">SHOP ALL</a>
-    </div>
-    <div class="products-grid">
-        <!-- Product 1 -->
-        <div class="product-card fade-in">
-            <div class="sold-out-badge">SOLD OUT</div>
-            {% render 'image-fallback', image: null, alt: 'Blue Raspberry', ratio: '1/1', placeholder: 'product-2' %}
-            <div class="product-info">
-                <h3 class="product-name">BLUE RASPBERRY</h3>
-                <div class="product-price">58.00 NIS <span class="original-price">69.00 NIS</span></div>
-                <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
-            </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="product-card fade-in">
-            {% render 'image-fallback', image: null, alt: 'Berry Blast', ratio: '1/1', placeholder: 'product-3' %}
-            <div class="product-info">
-                <h3 class="product-name">BERRY BLAST</h3>
-                <div class="product-price">85.00 NIS <span class="original-price">103.00 NIS</span></div>
-                <button class="add-to-cart-btn" onclick="addToCart('BERRY BLAST', 85.00)">ADD TO CART</button>
-            </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="product-card fade-in">
-            {% render 'image-fallback', image: null, alt: 'Tropical Sunrise', ratio: '1/1', placeholder: 'product-1' %}
-            <div class="product-info">
-                <h3 class="product-name">TROPICAL SUNRISE</h3>
-                <div class="product-price">172.00 NIS <span class="original-price">185.00 NIS</span></div>
-                <button class="add-to-cart-btn" onclick="addToCart('TROPICAL SUNRISE', 172.00)">ADD TO CART</button>
-            </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card fade-in">
-            {% render 'image-fallback', image: null, alt: 'Lemon Lime', ratio: '1/1', placeholder: 'product-4' %}
-            <div class="product-info">
-                <h3 class="product-name"><a href="/pages/lemon-lime">LEMON LIME</a></h3>
-                <div class="product-price">35.00 NIS — 62.00 NIS</div>
-                <button class="add-to-cart-btn" onclick="addToCart('LEMON LIME', 35.00)">ADD TO CART</button>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Bundles Carousel Section -->
+{% section 'bundles-carousel' %}
 
 <!-- New Arrivals Section -->
 <section class="new-arrivals">
