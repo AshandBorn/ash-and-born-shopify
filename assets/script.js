@@ -8,6 +8,156 @@
 let cart = [];
 let cartCount = 0;
 
+// Mapping of product image filenames to Shopify asset URLs.
+// These are populated via Liquid so that the correct URL is generated at build time.
+const productImages = {
+    'watermelon.png': "{{ 'watermelon.png' | asset_url }}",
+    'berry-blast.png': "{{ 'berry-blast.png' | asset_url }}",
+    'citrus-splash.png': "{{ 'citrus-splash.png' | asset_url }}",
+    'lemon-lime.png': "{{ 'lemon-lime.png' | asset_url }}",
+    'cherry-punch.png': "{{ 'cherry-punch.png' | asset_url }}",
+    'blue-raspberry.png': "{{ 'blue-raspberry.png' | asset_url }}",
+    'mixed-berry.png': "{{ 'mixed-berry.png' | asset_url }}",
+    'tropical-sunrise.png': "{{ 'tropical-sunrise.png' | asset_url }}",
+    'hero-product.png': "{{ 'hero-product.png' | asset_url }}"
+};
+
+/**
+ * Displays a quick view modal with product details.
+ * @param {string} name - The product name
+ * @param {number} price - The current price
+ * @param {number} [oldPrice] - The original price (optional)
+ * @param {string} description - A short product description
+ * @param {string} imageName - The key for the productImages mapping
+ */
+function quickView(name, price, oldPrice, description, imageName) {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'quickview-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 1rem;
+        overflow-y: auto;
+    `;
+
+    // Create modal container
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        background: white;
+        border-radius: 20px;
+        max-width: 600px;
+        width: 90%;
+        padding: 2rem;
+        position: relative;
+        animation: slideInUp 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    `;
+
+    // Image
+    const img = document.createElement('img');
+    img.src = productImages[imageName] || productImages['hero-product.png'];
+    img.alt = name;
+    img.style.width = '100%';
+    img.style.borderRadius = '15px';
+    img.style.marginBottom = '1.5rem';
+    modal.appendChild(img);
+
+    // Name
+    const h2 = document.createElement('h2');
+    h2.textContent = name;
+    h2.style.fontSize = '1.8rem';
+    h2.style.fontWeight = '700';
+    h2.style.marginBottom = '0.5rem';
+    modal.appendChild(h2);
+
+    // Price row
+    const priceRow = document.createElement('div');
+    priceRow.style.display = 'flex';
+    priceRow.style.alignItems = 'baseline';
+    priceRow.style.gap = '0.5rem';
+    priceRow.style.marginBottom = '1rem';
+    const priceEl = document.createElement('span');
+    priceEl.textContent = `${price.toFixed(2)} NIS`;
+    priceEl.style.fontSize = '1.5rem';
+    priceEl.style.fontWeight = '700';
+    priceRow.appendChild(priceEl);
+    if (oldPrice && oldPrice > price) {
+        const oldEl = document.createElement('span');
+        oldEl.textContent = `${oldPrice.toFixed(2)} NIS`;
+        oldEl.style.fontSize = '1rem';
+        oldEl.style.textDecoration = 'line-through';
+        oldEl.style.color = '#999';
+        priceRow.appendChild(oldEl);
+    }
+    modal.appendChild(priceRow);
+
+    // Description
+    const desc = document.createElement('p');
+    desc.textContent = description;
+    desc.style.fontSize = '1rem';
+    desc.style.lineHeight = '1.6';
+    desc.style.marginBottom = '2rem';
+    modal.appendChild(desc);
+
+    // Buttons container
+    const btnContainer = document.createElement('div');
+    btnContainer.style.display = 'flex';
+    btnContainer.style.gap = '1rem';
+    btnContainer.style.marginTop = '2rem';
+
+    // Add to Cart button
+    const addBtn = document.createElement('button');
+    addBtn.textContent = 'Add to Cart';
+    addBtn.style.flex = '1';
+    addBtn.style.padding = '1rem';
+    addBtn.style.background = 'linear-gradient(135deg, var(--green-primary) 0%, var(--green-secondary) 100%)';
+    addBtn.style.color = 'white';
+    addBtn.style.border = 'none';
+    addBtn.style.borderRadius = '10px';
+    addBtn.style.fontWeight = 'bold';
+    addBtn.style.cursor = 'pointer';
+    addBtn.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+    addBtn.addEventListener('click', () => {
+        addToCart(name, price);
+        overlay.remove();
+    });
+    btnContainer.appendChild(addBtn);
+
+    // Close button
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Close';
+    closeBtn.style.flex = '1';
+    closeBtn.style.padding = '1rem';
+    closeBtn.style.background = '#ddd';
+    closeBtn.style.color = '#333';
+    closeBtn.style.border = 'none';
+    closeBtn.style.borderRadius = '10px';
+    closeBtn.style.fontWeight = 'bold';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.addEventListener('click', () => {
+        overlay.remove();
+    });
+    btnContainer.appendChild(closeBtn);
+    modal.appendChild(btnContainer);
+
+    overlay.appendChild(modal);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.remove();
+        }
+    });
+    document.body.appendChild(overlay);
+}
+
 // Add product to cart and update UI
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
