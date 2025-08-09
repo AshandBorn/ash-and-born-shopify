@@ -1,11 +1,6 @@
-{%- comment -%}
-  Fallback Liquid template for the home page. This file is used by Shopify if the index.json
-  template is not parsed correctly for any reason. It renders each of the main sections
-  sequentially. If you edit the section file names, be sure to update the order here.
-{%- endcomment -%}
-
+{% comment %} Home template using Liquid to avoid conflict with existing index.liquid/json {% endcomment %}
 {% section 'hero-video' %}
 {% section 'brand-message' %}
+{% section 'featured-product' %}
 {% section 'product-showcase' %}
 {% section 'ingredients-section' %}
-{% section 'footer' %}
