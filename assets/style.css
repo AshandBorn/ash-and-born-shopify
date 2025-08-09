@@ -19,12 +19,24 @@
     box-sizing: border-box;
 }
 
+/* Smooth and fast scrolling */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Account for fixed header */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--dark-text);
     overflow-x: hidden;
     background-color: var(--white);
+    /* Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    /* GPU acceleration for smooth animations */
+    will-change: scroll-position;
 }
 
 /* Moving Text Banner */
@@ -41,7 +53,10 @@ body {
 
 .moving-text {
     display: inline-block;
-    animation: scroll 15s linear infinite;
+    animation: scroll 8s linear infinite;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 @keyframes scroll {
@@ -544,7 +559,7 @@ body {
     font-weight: 900;
     text-align: center;
     white-space: nowrap;
-    animation: scroll-banner 10s linear infinite;
+    animation: scroll-banner 6s linear infinite;
     margin-bottom: 4rem;
     color: var(--green-dark);
 }
