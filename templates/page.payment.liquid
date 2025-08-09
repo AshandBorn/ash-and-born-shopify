@@ -1,0 +1,309 @@
+<!-- Payment Page -->
+<section class="payment-page">
+  <div class="container">
+    <h1 class="page-title">Checkout</h1>
+    
+    <div class="checkout-container">
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="cart-items" id="cart-items">
+          <!-- Cart items will be populated by JavaScript -->
+        </div>
+        
+        <div class="order-totals">
+          <div class="subtotal">
+            <span>Subtotal:</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="shipping">
+            <span>Shipping:</span>
+            <span id="shipping">$0.00</span>
+          </div>
+          <div class="tax">
+            <span>Tax:</span>
+            <span id="tax">$0.00</span>
+          </div>
+          <div class="total">
+            <span>Total:</span>
+            <span id="total">$0.00</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Payment Form -->
+      <div class="payment-form">
+        <form id="checkout-form" action="/cart/add" method="post">
+          
+          <!-- Customer Information -->
+          <div class="form-section">
+            <h3>Contact Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Shipping Address -->
+          <div class="form-section">
+            <h3>Shipping Address</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first_name" required>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last_name" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="address">Address *</label>
+                <input type="text" id="address" name="address" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="apartment">Apartment, suite, etc.</label>
+                <input type="text" id="apartment" name="apartment">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city" required>
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <select id="country" name="country" required>
+                  <option value="">Select Country</option>
+                  <option value="IL">Israel</option>
+                  <option value="US">United States</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="zip">Postal Code *</label>
+                <input type="text" id="zip" name="zip" required>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Billing Address -->
+          <div class="form-section">
+            <div class="checkbox-group">
+              <input type="checkbox" id="same-billing" name="same_billing" checked>
+              <label for="same-billing">Billing address same as shipping</label>
+            </div>
+            
+            <div id="billing-address" style="display: none;">
+              <h3>Billing Address</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="billing-first-name">First Name *</label>
+                  <input type="text" id="billing-first-name" name="billing_first_name">
+                </div>
+                <div class="form-group">
+                  <label for="billing-last-name">Last Name *</label>
+                  <input type="text" id="billing-last-name" name="billing_last_name">
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="billing-address">Address *</label>
+                  <input type="text" id="billing-address-input" name="billing_address">
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="billing-city">City *</label>
+                  <input type="text" id="billing-city" name="billing_city">
+                </div>
+                <div class="form-group">
+                  <label for="billing-country">Country *</label>
+                  <select id="billing-country" name="billing_country">
+                    <option value="">Select Country</option>
+                    <option value="IL">Israel</option>
+                    <option value="US">United States</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="DE">Germany</option>
+                    <option value="FR">France</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="billing-zip">Postal Code *</label>
+                  <input type="text" id="billing-zip" name="billing_zip">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Payment Method -->
+          <div class="form-section">
+            <h3>Payment Method</h3>
+            
+            <!-- Shopify Payments -->
+            <div class="payment-methods">
+              <div class="payment-method">
+                <input type="radio" id="card-payment" name="payment_method" value="card" checked>
+                <label for="card-payment">
+                  <span class="payment-icon">💳</span>
+                  Credit/Debit Card
+                  <div class="card-icons">
+                    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/visa.png" alt="Visa">
+                    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/mastercard.png" alt="Mastercard">
+                    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/american_express.png" alt="American Express">
+                  </div>
+                </label>
+              </div>
+              
+              <div class="payment-method">
+                <input type="radio" id="paypal-payment" name="payment_method" value="paypal">
+                <label for="paypal-payment">
+                  <span class="payment-icon">🏦</span>
+                  PayPal
+                </label>
+              </div>
+              
+              <div class="payment-method">
+                <input type="radio" id="apple-pay" name="payment_method" value="apple_pay">
+                <label for="apple-pay">
+                  <span class="payment-icon">📱</span>
+                  Apple Pay
+                </label>
+              </div>
+              
+              <div class="payment-method">
+                <input type="radio" id="google-pay" name="payment_method" value="google_pay">
+                <label for="google-pay">
+                  <span class="payment-icon">🎯</span>
+                  Google Pay
+                </label>
+              </div>
+              
+              <div class="payment-method">
+                <input type="radio" id="bank-transfer" name="payment_method" value="bank_transfer">
+                <label for="bank-transfer">
+                  <span class="payment-icon">🏛️</span>
+                  Bank Transfer
+                </label>
+              </div>
+            </div>
+            
+            <!-- Credit Card Form -->
+            <div id="card-details" class="card-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-number">Card Number *</label>
+                  <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-name">Name on Card *</label>
+                  <input type="text" id="card-name" name="card_name">
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry">Expiry Date *</label>
+                  <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5">
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV *</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                </div>
+              </div>
+            </div>
+            
+            <!-- PayPal Info -->
+            <div id="paypal-info" class="payment-info" style="display: none;">
+              <p>You will be redirected to PayPal to complete your purchase.</p>
+            </div>
+            
+            <!-- Bank Transfer Info -->
+            <div id="bank-transfer-info" class="payment-info" style="display: none;">
+              <h4>Bank Transfer Details:</h4>
+              <p><strong>Bank:</strong> Example Bank</p>
+              <p><strong>Account Name:</strong> Ash & Born Ltd.</p>
+              <p><strong>Account Number:</strong> 1234567890</p>
+              <p><strong>Sort Code:</strong> 12-34-56</p>
+              <p>Please use your order number as the payment reference.</p>
+            </div>
+          </div>
+          
+          <!-- Order Notes -->
+          <div class="form-section">
+            <div class="form-group">
+              <label for="order-notes">Order Notes (Optional)</label>
+              <textarea id="order-notes" name="order_notes" rows="4" placeholder="Special instructions for your order..."></textarea>
+            </div>
+          </div>
+          
+          <!-- Terms and Conditions -->
+          <div class="form-section">
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the <a href="/pages/terms-of-service" target="_blank">Terms and Conditions</a> and <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a> *</label>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">Subscribe to our newsletter for exclusive offers and updates</label>
+            </div>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="form-section">
+            <button type="submit" class="complete-order-btn" id="complete-order">
+              <span class="btn-text">Complete Order</span>
+              <span class="btn-loader" style="display: none;">Processing...</span>
+            </button>
+            
+            <div class="secure-payment">
+              <span class="secure-icon">🔒</span>
+              <span>Secure SSL encrypted payment</span>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Processing Modal -->
+<div id="payment-modal" class="payment-modal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Processing Payment</h3>
+    </div>
+    <div class="modal-body">
+      <div class="payment-spinner"></div>
+      <p>Please wait while we process your payment...</p>
+      <p class="modal-note">Do not close or refresh this page.</p>
+    </div>
+  </div>
+</div>
+
+{{ 'payment.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'payment.js' | asset_url }}" defer></script>
