@@ -177,10 +177,15 @@ body {
 
 /* Mobile Header Styles */
 @media (max-width: 768px) {
+    .header {
+        margin: 0.5rem 1rem 0 1rem;
+    }
+    
     .nav-container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1.5rem;
     }
     
     .nav-left, .nav-right {
@@ -189,18 +194,25 @@ body {
     
     .logo {
         font-size: 1.5rem;
-        grid-row: 1;
+        text-align: center;
+        flex: 1;
     }
     
     .nav-actions {
         position: static;
         transform: none;
-        justify-self: center;
-        grid-row: 2;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
     
     .mobile-menu-toggle {
         display: block;
+        order: -1;
+    }
+    
+    .search-icon, .user-icon {
+        display: none;
     }
 }
 
@@ -786,45 +798,21 @@ body {
     opacity: 0.8;
 }
 
-/* Responsive */
+/* Responsive - General Mobile Styles */
 @media (max-width: 768px) {
-    .header {
-        margin: 1rem;
-        border-radius: 20px;
-    }
-    .nav-container {
-        padding: 1rem 2rem;
-    }
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        border-radius: 0 0 20px 20px;
-        z-index: 999;
-    }
-    .nav-menu.active {
-        display: flex;
-    }
-    .mobile-menu-toggle {
-        display: block;
-    }
     .hero h1 {
         font-size: 3rem;
     }
+    
     .section-title {
         font-size: 2rem;
     }
-    .best-sellers,
+    
     .new-arrivals,
     .how-to-section {
         padding: 4rem 2rem;
     }
+    
     .new-arrivals-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -851,25 +839,13 @@ body {
         font-size: 1rem !important;
     }
     
-    /* Smaller logo for mobile */
-    .logo {
-        font-size: 1.5rem !important;
-        letter-spacing: -0.5px !important;
-    }
-    
-    /* Better mobile header spacing */
-    .nav-container {
-        padding: 0.5rem 1rem !important;
-    }
     .steps-container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+    
     .how-to-banner {
         font-size: 2rem;
-    }
-    .products-grid {
-        grid-template-columns: 1fr;
     }
 }
 
