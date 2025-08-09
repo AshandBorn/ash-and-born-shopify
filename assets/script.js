@@ -4,15 +4,16 @@
  * notifications, loading animations and dynamic effects.
  */
 
-// Smooth scrolling for hash links with proper timing
+// Smooth scrolling for hash links (if any remain)
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle all shop-related links that should scroll to #shop section
-    document.querySelectorAll('a[href="#shop"], a[href="/#shop"], .shop-now-btn, .shop-all-link').forEach(anchor => {
+    // Handle any remaining hash links that should scroll within page
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#shop');
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
             if (target) {
-                const headerOffset = 120; // Proper space from header
+                e.preventDefault();
+                const headerOffset = 120;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
