@@ -1,40 +1,17 @@
-<section class="brand-message-section section-animate" style="padding:64px 0;">
-  <div class="container" style="max-width:800px;margin:0 auto;text-align:center;padding:0 24px;">
-    <h2 style="font-size:2rem;margin-bottom:16px;font-weight:600">{{ section.settings.heading }}</h2>
-    <p style="font-size:1.125rem;margin-bottom:24px;opacity:0.8">{{ section.settings.subheading }}</p>
-    <p style="font-size:1rem;line-height:1.6;opacity:0.7">{{ section.settings.body }}</p>
+
+<section class="brand-message section-animate" style="padding:64px 0;">
+  <div class="container" style="border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:18px">
+    <h2 style="margin:0 0 8px">{{ section.settings.heading }}</h2>
+    <p style="opacity:.85;margin:0">{{ section.settings.text }}</p>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Brand message",
-  "tag": "section",
-  "class": "section-brand-message",
   "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Daily clarity. Nightly recovery."
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Two blends tuned for performance and calm. Electrolytes + adaptogens, clean and effective."
-    },
-    {
-      "type": "textarea",
-      "id": "body",
-      "label": "Body text",
-      "default": "We built Ash & Born to be your daily ritual: clean electrolytes, thoughtful flavors, honest labels."
-    }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "No gimmicks. Just balance."},
+    { "type": "text", "id": "text", "label": "Text", "default": "We built Ash & Born to be your daily ritual: clean electrolytes, thoughtful flavors, honest labels."}
   ],
-  "presets": [
-    {
-      "name": "Brand message"
-    }
-  ]
+  "presets": [{ "name": "Brand message" }]
 }
 {% endschema %}

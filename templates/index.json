@@ -1,6 +1,6 @@
 {
   "sections": {
-    "hero-video": {
+    "hero": {
       "type": "hero-video",
       "settings": {}
     },
@@ -22,7 +22,7 @@
     }
   },
   "order": [
-    "hero-video",
+    "hero",
     "brand",
     "products",
     "ingredients",
