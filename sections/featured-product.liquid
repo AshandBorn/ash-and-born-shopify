@@ -1,42 +1,41 @@
 
-{% assign pd = all_products[section.settings.product] %}
-<section class="section-animate">
-  <div class="container grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center">
-    <div>
-      {% if pd and pd.featured_media %}
-        <img src="{{ pd.featured_media | image_url: width: 1200 }}" alt="{{ pd.title }}" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12)">
-      {% else %}
-        <div class="card pad">Choose a product in the section settings.</div>
-      {% endif %}
-    </div>
-    <div>
-      <h2 style="margin-top:0">{{ pd.title | default: section.settings.fallback_title }}</h2>
-      {% if pd %}
-        <div class="price">{{ pd.price | money }}</div>
-        {% assign first_av = pd.variants | where: 'available', true | first %}
-        <form method="post" action="/cart/add">
-          <input type="hidden" name="id" value="{{ (first_av | default: pd.variants.first).id }}">
-          <label class="sr" for="qty-{{ section.id }}">Qty</label>
-          <input id="qty-{{ section.id }}" name="quantity" type="number" min="1" value="1" style="margin:12px 0;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff">
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-            <button type="submit" class="btn">Add to cart</button>
-            <a class="btn btn--ghost" href="{{ pd.url }}">View product</a>
-          </div>
-        </form>
-      {% else %}
-        <p>Pick a product to enable Add to Cart.</p>
-      {% endif %}
-      <p style="opacity:.85">{{ section.settings.text }}</p>
-    </div>
+<section class="featured-product section-animate" style="padding:64px 0;">
+  <div class="container">
+    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
+    {% assign handle = section.settings.product %}
+    {% if handle and all_products[handle] %}
+      {% assign pd = all_products[handle] %}
+      {% assign first_av = pd.selected_or_first_available_variant %}
+      <article class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center">
+        <div>
+          {% if pd.featured_image %}
+            <img src="{{ pd.featured_image | img_url: '1000x' }}" alt="{{ pd.title }}">
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <h3 style="margin:0 0 8px;font-size:26px">{{ pd.title }}</h3>
+          <div class="price" style="margin:8px 0 16px">{{ first_av.price | money }}</div>
+          <p style="opacity:.85;margin:0 0 16px">{{ pd.description | strip_html | truncate: 200 }}</p>
+          {% if first_av.available %}
+            <button class="btn" data-add-to-cart data-variant-id="{{ first_av.id }}">Add to cart</button>
+          {% else %}
+            <span>Sold out</span>
+          {% endif %}
+        </div>
+      </article>
+    {% else %}
+      <div class="card" style="padding:16px">
+        <p>No product selected. Choose a product in the section settings.</p>
+      </div>
+    {% endif %}
   </div>
 </section>
 {% schema %}
 {
   "name": "Featured product",
   "settings": [
-    { "type": "product", "id": "product", "label": "Product" },
-    { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "Your product" },
-    { "type": "text", "id": "text", "label": "Supporting text", "default": "Clean electrolytes for day & night." }
+    { "type": "text", "id": "title", "label": "Title", "default": "Featured product" },
+    { "type": "product", "id": "product", "label": "Product" }
   ],
   "presets": [{ "name": "Featured product" }]
 }

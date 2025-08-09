@@ -23,10 +23,15 @@
     "footer": {
       "type": "footer",
       "settings": {}
+    },
+    "featured_product": {
+      "type": "featured-product",
+      "settings": {}
     }
   },
   "order": [
     "header",
+    "featured_product",
     "hero",
     "brand",
     "featured",
