@@ -18,55 +18,41 @@
         <!-- Product 1 -->
         <div class="product-card fade-in">
             <div class="sold-out-badge">SOLD OUT</div>
-            <div class="product-image blue">
-                <div class="product-cylinders">
-                    <div class="cylinder" style="background: #64b5f6;"></div>
-                    <div class="cylinder" style="background: #f06292;"></div>
-                </div>
+            <div class="product-image">
+                <img src="{{ 'blue-raspberry.png' | asset_url }}" alt="Blue Raspberry" loading="lazy" />
             </div>
             <div class="product-info">
-                <h3 class="product-name">NEW FLAVOUR PACK 10 PACK</h3>
+                <h3 class="product-name">BLUE RASPBERRY</h3>
                 <div class="product-price">58.00 NIS <span class="original-price">69.00 NIS</span></div>
                 <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
             </div>
         </div>
         <!-- Product 2 -->
         <div class="product-card fade-in">
-            <div class="sold-out-badge">SOLD OUT</div>
-            <div class="product-image green">
-                <div class="product-cylinders">
-                    <div class="cylinder" style="background: #ffb74d;"></div>
-                    <div class="cylinder" style="background: var(--green-secondary);"></div>
-                    <div class="cylinder" style="background: #e57373;"></div>
-                </div>
+            <div class="product-image">
+                <img src="{{ 'berry-blast.png' | asset_url }}" alt="Berry Blast" loading="lazy" />
             </div>
             <div class="product-info">
-                <h3 class="product-name">OG FLAVOUR PACK 10 PACK</h3>
+                <h3 class="product-name">BERRY BLAST</h3>
                 <div class="product-price">85.00 NIS <span class="original-price">103.00 NIS</span></div>
-                <button class="add-to-cart-btn sold-out-btn">Sold Out</button>
+                <button class="add-to-cart-btn" onclick="addToCart('BERRY BLAST', 85.00)">ADD TO CART</button>
             </div>
         </div>
         <!-- Product 3 -->
         <div class="product-card fade-in">
-            <div class="product-image green">
-                <div class="product-cylinders">
-                    <div class="cylinder" style="background: #ffb74d;"></div>
-                    <div class="cylinder" style="background: var(--green-secondary);"></div>
-                    <div class="cylinder" style="background: #f06292;"></div>
-                </div>
+            <div class="product-image">
+                <img src="{{ 'tropical-sunrise.png' | asset_url }}" alt="Tropical Sunrise" loading="lazy" />
             </div>
             <div class="product-info">
-                <h3 class="product-name">OG FLAVOUR PACK 30 PACK</h3>
+                <h3 class="product-name">TROPICAL SUNRISE</h3>
                 <div class="product-price">172.00 NIS <span class="original-price">185.00 NIS</span></div>
-                <button class="add-to-cart-btn" onclick="addToCart('OG FLAVOUR PACK 30 PACK', 172.00)">ADD TO CART</button>
+                <button class="add-to-cart-btn" onclick="addToCart('TROPICAL SUNRISE', 172.00)">ADD TO CART</button>
             </div>
         </div>
         <!-- Product 4 -->
         <div class="product-card fade-in">
-            <div class="product-image green">
-                <div class="product-cylinders">
-                    <div class="cylinder" style="background: var(--green-secondary);"></div>
-                </div>
+            <div class="product-image">
+                <img src="{{ 'lemon-lime.png' | asset_url }}" alt="Lemon Lime" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name"><a href="/pages/lemon-lime">LEMON LIME</a></h3>
