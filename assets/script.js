@@ -7,25 +7,21 @@
 // Smooth scrolling for hash links with proper timing
 document.addEventListener('DOMContentLoaded', function() {
     // Override smooth scrolling for better control
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href="#shop"], a[href="/#shop"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector('#shop');
             if (target) {
-                const headerOffset = 150; // More space from header
+                const headerOffset = 120; // Proper space from header
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
-                // Slower, more controlled scrolling
+                console.log('Scrolling to Best Sellers section'); // Debug log
+                
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Add a small delay to ensure proper positioning
-                setTimeout(() => {
-                    target.focus({preventScroll: true});
-                }, 800);
             }
         });
     });
