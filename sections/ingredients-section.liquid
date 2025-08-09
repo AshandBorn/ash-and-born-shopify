@@ -1,0 +1,85 @@
+{% comment %}
+  Ingredients Section
+  Lists key ingredients with descriptions.
+{% endcomment %}
+<section class="ingredients-section">
+  <h2>{{ section.settings.heading }}</h2>
+  <p>{{ section.settings.subheading }}</p>
+  <div class="ingredients-grid">
+    {% for block in section.blocks %}
+      <div class="ingredient-item">
+        <h4>{{ block.settings.title }}</h4>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Inside the blend"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Each ingredient is meticulously chosen for optimal performance and calm."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient name",
+          "default": "Electrolytes"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Essential minerals to hydrate and support recovery."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Electrolytes",
+            "description": "Essential minerals to hydrate and support recovery."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Adaptogens",
+            "description": "Herbs that help manage stress and support rest."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Flavor blends",
+            "description": "Thoughtfully crafted natural flavors."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

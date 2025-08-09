@@ -1,0 +1,68 @@
+{% comment %}
+  Ash & Born Header
+  Displays logo and navigation links.
+{% endcomment %}
+<header class="site-header">
+  <div class="logo">{{ section.settings.logo_text }}</div>
+  <nav>
+    <ul>
+      {% for link in section.blocks %}
+        <li><a href="{{ link.settings.url }}">{{ link.settings.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Ash & Born"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigation link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link label",
+          "default": "Section"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL",
+          "default": "/"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Header",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {"label": "Sleep", "url": "/collections/sleep"}
+        },
+        {
+          "type": "link",
+          "settings": {"label": "Hydration", "url": "/collections/hydration"}
+        },
+        {
+          "type": "link",
+          "settings": {"label": "Subscribe", "url": "/pages/subscribe"}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

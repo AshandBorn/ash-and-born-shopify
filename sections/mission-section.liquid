@@ -1,0 +1,43 @@
+{% comment %}
+  Mission Section
+  Highlights the brand mission with text and optional image.
+{% endcomment %}
+<section class="mission-section">
+  <div class="mission-content">
+    <h3>{{ section.settings.title }}</h3>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="mission-image">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | img_url: 'large' }}" alt="Mission image" style="width:100%;height:auto;" />
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mission section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our mission"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Empowering you with balanced hydration and restful sleep through clean, honest supplements."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {"name": "Mission section"}
+  ]
+}
+{% endschema %}

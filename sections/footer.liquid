@@ -1,0 +1,66 @@
+{% comment %}
+  Ash & Born Footer
+  Contains copyright and navigation links.
+{% endcomment %}
+<footer class="site-footer">
+  <div>{{ section.settings.copyright }}</div>
+  <div>
+    {% for link in section.blocks %}
+      <a href="{{ link.settings.url }}">{{ link.settings.label }}</a>
+    {% endfor %}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "© {{ 'now' | date: '%Y' }} Ash & Born"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link label",
+          "default": "About"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL",
+          "default": "/pages/about"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {"label": "About", "url": "/pages/about"}
+        },
+        {
+          "type": "link",
+          "settings": {"label": "FAQ", "url": "/pages/faq"}
+        },
+        {
+          "type": "link",
+          "settings": {"label": "Privacy", "url": "/pages/privacy"}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

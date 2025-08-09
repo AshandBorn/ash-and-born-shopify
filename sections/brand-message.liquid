@@ -1,0 +1,31 @@
+{% comment %}
+  Ash & Born Brand Message section
+  Displays the brand mantra and description.
+{% endcomment %}
+<section class="brand-section">
+  <h2>{{ section.settings.heading }}</h2>
+  <p>{{ section.settings.description }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "Brand message",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "No gimmicks. Just balance."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We built Ash & Born to be your daily ritual: clean electrolytes, thoughtful flavors, honest labels."
+    }
+  ],
+  "presets": [
+    {"name": "Brand message"}
+  ]
+}
+{% endschema %}

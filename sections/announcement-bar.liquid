@@ -1,0 +1,35 @@
+{% comment %}
+  Ash & Born Announcement Bar
+  This section displays rotating announcements at the top of the page.
+{% endcomment %}
+<section class="announcement-bar">
+  {% assign messages = section.settings.messages | split: '|' %}
+  <div class="slide">
+    {% for message in messages %}
+      <span>{{ message }}</span>
+      {% unless forloop.last %}
+        <span style="padding-left:2rem"></span>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "messages",
+      "label": "Messages",
+      "default": "FREE SHIPPING ON ALL SUBSCRIPTION ORDERS|FREE SHIPPING ON ALL ORDERS OVER $70",
+      "info": "Separate multiple messages with a pipe | symbol"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

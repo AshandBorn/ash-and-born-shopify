@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "announcement-bar": {"type": "announcement-bar"},
+    "header": {"type": "header"},
+    "hero": {"type": "hero"},
+    "brand-message": {"type": "brand-message"},
+    "product-bundles": {"type": "product-bundles"},
+    "ingredients": {"type": "ingredients-section"},
+    "subscribe": {"type": "subscribe-section"},
+    "mission": {"type": "mission-section"},
+    "footer": {"type": "footer"}
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "hero",
+    "brand-message",
+    "product-bundles",
+    "ingredients",
+    "subscribe",
+    "mission",
+    "footer"
+  ]
+}
