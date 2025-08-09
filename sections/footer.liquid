@@ -1,7 +1,7 @@
 
-<footer style="border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding:24px 0">
+<footer>
   <div class="container" style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div>© {{ 'now' | date: '%Y' }} Ash &amp; Born</div>
+    <div>© {{ 'now' | date: '%Y' }} {{ shop.name }}</div>
     <nav style="display:flex;gap:12px;flex-wrap:wrap">
       {% for block in section.blocks %}
         <a href="{{ block.settings.url }}">{{ block.settings.label }}</a>
@@ -18,6 +18,6 @@
       { "type": "url",  "id": "url",   "label": "URL", "default": "/" }
     ]}
   ],
-  "presets": [{ "name": "Footer", "blocks": [{ "type": "link" }, { "type": "link", "settings": { "label": "FAQ", "url": "/pages/faq" } }] }]
+  "presets": [{ "name": "Footer", "blocks": [{ "type": "link" }, { "type": "link", "settings": { "label": "FAQ", "url": "/pages/faq" } }]}]
 }
 {% endschema %}

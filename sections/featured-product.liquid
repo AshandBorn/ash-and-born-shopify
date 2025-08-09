@@ -1,0 +1,43 @@
+
+{% assign pd = all_products[section.settings.product] %}
+<section class="section-animate">
+  <div class="container grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:center">
+    <div>
+      {% if pd and pd.featured_media %}
+        <img src="{{ pd.featured_media | image_url: width: 1200 }}" alt="{{ pd.title }}" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12)">
+      {% else %}
+        <div class="card pad">Choose a product in the section settings.</div>
+      {% endif %}
+    </div>
+    <div>
+      <h2 style="margin-top:0">{{ pd.title | default: section.settings.fallback_title }}</h2>
+      {% if pd %}
+        <div class="price">{{ pd.price | money }}</div>
+        {% assign first_av = pd.variants | where: 'available', true | first %}
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ (first_av | default: pd.variants.first).id }}">
+          <label class="sr" for="qty-{{ section.id }}">Qty</label>
+          <input id="qty-{{ section.id }}" name="quantity" type="number" min="1" value="1" style="margin:12px 0;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff">
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button type="submit" class="btn">Add to cart</button>
+            <a class="btn btn--ghost" href="{{ pd.url }}">View product</a>
+          </div>
+        </form>
+      {% else %}
+        <p>Pick a product to enable Add to Cart.</p>
+      {% endif %}
+      <p style="opacity:.85">{{ section.settings.text }}</p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "fallback_title", "label": "Fallback title", "default": "Your product" },
+    { "type": "text", "id": "text", "label": "Supporting text", "default": "Clean electrolytes for day & night." }
+  ],
+  "presets": [{ "name": "Featured product" }]
+}
+{% endschema %}

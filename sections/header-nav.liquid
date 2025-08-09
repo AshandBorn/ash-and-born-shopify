@@ -1,0 +1,24 @@
+
+<header class="header">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <a class="brand" href="/">{{ section.settings.logo_text }}</a>
+    <nav class="nav">
+      {% if section.settings.main_menu != blank %}
+        {% for link in linklists[section.settings.main_menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      {% endif %}
+      <a href="/cart">Cart</a>
+    </nav>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Header / Navigation",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo text", "default": "Ash & Born" },
+    { "type": "link_list", "id": "main_menu", "label": "Main menu" }
+  ],
+  "presets": [{ "name": "Header / Navigation" }]
+}
+{% endschema %}

@@ -1,0 +1,39 @@
+
+{% assign col = collections[section.settings.collection] %}
+<section class="section-animate">
+  <div class="container">
+    <h2 style="margin:0 0 12px">{{ section.settings.title }}</h2>
+    <div class="grid grid--3">
+      {% for p in col.products limit: section.settings.limit %}
+        {% assign fav = p.variants | where: 'available', true | first | default: p.variants.first %}
+        <article class="card">
+          {% if p.featured_media %}
+            <img src="{{ p.featured_media | image_url: width: 800 }}" alt="{{ p.title }}" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+          {% endif %}
+          <div class="pad">
+            <h3 style="margin:.2rem 0 .4rem">{{ p.title }}</h3>
+            <div class="price">{{ p.price | money }}</div>
+            <form method="post" action="/cart/add" style="margin-top:8px;display:flex;gap:8px;align-items:center">
+              <input type="hidden" name="id" value="{{ fav.id }}">
+              <button type="submit" class="btn">Add</button>
+              <a class="btn btn--ghost" href="{{ p.url }}">View</a>
+            </form>
+          </div>
+        </article>
+      {% else %}
+        <p>No products. Choose a collection in the section settings.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Collection grid",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Shop the blends" },
+    { "type": "range", "id": "limit", "label": "Products to show", "min": 1, "max": 24, "step": 1, "default": 6 }
+  ],
+  "presets": [{ "name": "Collection grid" }]
+}
+{% endschema %}
