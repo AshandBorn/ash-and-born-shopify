@@ -30,12 +30,10 @@
                             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                         {% endfor %}
                     {% else %}
-                        {% comment %} Fallback to manual navigation {% endcomment %}
-                        <li><a href="{{ routes.collections_url }}/all">Shop</a></li>
-                        {% if pages['about'] %}<li><a href="{{ pages['about'].url }}">About</a></li>{% endif %}
-                        {% if pages['when-to-use'] %}<li><a href="{{ pages['when-to-use'].url }}">When to Use</a></li>{% endif %}
+                        {% comment %} Fallback navigation matching live site {% endcomment %}
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ routes.collections_url }}/all">Catalog</a></li>
                         {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
-                        {% if pages['payment'] %}<li><a href="{{ pages['payment'].url }}">Payment</a></li>{% endif %}
                     {% endif %}
                 </ul>
             </div>
@@ -73,11 +71,8 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="{{ routes.collections_url }}/all">Shop</a></li>
-                        {% if pages['about'] %}<li><a href="{{ pages['about'].url }}">About</a></li>{% endif %}
-                        {% if pages['when-to-use'] %}<li><a href="{{ pages['when-to-use'].url }}">When to Use</a></li>{% endif %}
+                        <li><a href="{{ routes.collections_url }}/all">Catalog</a></li>
                         {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
-                        {% if pages['payment'] %}<li><a href="{{ pages['payment'].url }}">Payment</a></li>{% endif %}
                     </ul>
                 </div>
                 <div class="footer-section">
