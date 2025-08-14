@@ -1,102 +1,47 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if title %}{{ title }} - {% endif %}Ash & Born</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ shop.name }}</title>
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="{{ 'style.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ 'style.css' | asset_url }}" rel="stylesheet"></noscript>
-    <!-- Preload Font Awesome with faster delivery -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <script defer src="{{ 'script.js' | asset_url }}"></script>
-</head>
-<body>
-    <!-- Moving Banner -->
-    <div class="moving-banner">
-        <div class="moving-text">
-            🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿 NEXT LEVEL HYDRATION 🌿
-        </div>
-    </div>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="nav-left">
-                <ul class="nav-menu">
-                    {% comment %} Try to use Shopify menu system first {% endcomment %}
-                    {% if linklists['main-menu'].links.size > 0 %}
-                        {% for link in linklists['main-menu'].links limit: 5 %}
-                            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                        {% endfor %}
-                    {% else %}
-                        {% comment %} Fallback navigation matching live site {% endcomment %}
-                        <li><a href="/">Home</a></li>
-                        <li><a href="{{ routes.collections_url }}/all">Catalog</a></li>
-                        {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
-                    {% endif %}
-                </ul>
-            </div>
-            <a href="/" class="logo">ASH & BORN</a>
-            <div class="nav-actions">
-                <div class="search-icon"><i class="fas fa-search"></i></div>
-                <a href="{{ routes.account_url }}" class="user-icon"><i class="fas fa-user"></i></a>
-                <a href="{{ routes.cart_url }}" class="cart-icon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">{{ cart.item_count }}</span>
-                </a>
-                <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
+    <style>
+      :root{
+        --bg:#ffffff;
+        --text:#111;
+        --muted:#666;
+        --brand:#12b981;
+        --btn:#fff;
+        --btn-text:#111;
+        --shadow:0 8px 24px rgba(0,0,0,.12);
+        --radius:999px;
+      }
+      *{box-sizing:border-box}
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:#fafafa;}
+      .icon{ width:20px; height:20px; fill:currentColor; color:#111 }
+      .icon-btn{ width:40px;height:40px; display:grid; place-items:center; border-radius:10px; background:#f3f4f6; cursor:pointer; transition:transform .15s ease, background .15s ease; border:1px solid #e5e7eb; text-decoration:none; color:inherit; }
+      .icon-btn:hover{ background:#eef2ff; transform:translateY(-1px) }
+      .cart-badge{ position:absolute; top:-6px; right:-6px; min-width:18px; height:18px; padding:0 5px; background:#86efac; color:#0a0a0a; border:1px solid #064e3b22; font-size:12px; line-height:18px; border-radius:999px; text-align:center; font-weight:700; }
+      .header{ position:sticky; top:0; z-index:50; background:var(--bg); box-shadow:0 1px 0 rgba(0,0,0,.06) }
+      .header-inner{ max-width:1200px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:12px }
+      .left{ display:flex; align-items:center; gap:12px; min-width:120px }
+      .center{ margin-inline:auto; font-weight:800; letter-spacing:.04em; font-size:22px }
+      .right{ display:flex; align-items:center; gap:14px; min-width:220px; justify-content:flex-end }
+      .hello{ color:var(--muted); font-weight:600; white-space:nowrap; display:none }
+      @media (min-width:720px){ .hello{ display:block } }
+      .hero{ background:linear-gradient(90deg,#22c55e,#06b6d4 50%,#f59e0b); padding:64px 16px 48px; color:#fff; position:relative; overflow:hidden }
+      .hero-inner{ max-width:1100px; margin:auto; text-align:center }
+      .headline{ font-size:clamp(32px,6vw,68px); line-height:1.02; font-weight:900; text-shadow:0 6px 28px rgba(0,0,0,.25); letter-spacing:.01em }
+      .cta-row{ margin-top:22px; display:flex; gap:18px; justify-content:center; flex-wrap:wrap }
+      .btn{ appearance:none; border:none; background:var(--btn); color:var(--btn-text); padding:14px 26px; font-weight:800; border-radius:var(--radius); box-shadow:var(--shadow); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; letter-spacing:.02em; font-size:16px; text-decoration:none; display:inline-block }
+      .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.18) }
+      .btn-subscribe{ display:inline-block; margin-top:18px; padding:18px 34px; font-size:20px }
+      @media (min-width:900px){ .btn-subscribe{ min-width:560px } }
+    </style>
+  </head>
+  <body>
     {{ content_for_layout }}
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Ash & Born</h3>
-                    <p>Premium hydration blends crafted from nature’s finest ingredients to help you rise and thrive every day.</p>
-                    <div class="social-icons">
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="{{ routes.collections_url }}/all">Catalog</a></li>
-                        {% if pages['contact'] %}<li><a href="{{ pages['contact'].url }}">Contact</a></li>{% endif %}
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Support Center</a></li>
-                        <li><a href="#">Track Your Order</a></li>
-                        <li><a href="#">Wholesale</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> info@ashborn.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Wellness St, Health City, HC 12345</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM PST</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; {{ 'now' | date: '%Y' }} Ash & Born. All rights reserved. | <a href="/pages/privacy-policy">Privacy Policy</a> | <a href="/pages/terms-of-service">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
-</body>
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
 </html>

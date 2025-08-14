@@ -1,7 +1,3 @@
 {
-  "general": {
-    "password_page": {
-      "opening_soon": "Opening soon"
-    }
-  }
+  "general.greeting": "Hello"
 }

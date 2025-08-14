@@ -1,0 +1,54 @@
+{% comment %} Header with hamburger + search (left), logo (center), greeting + account + cart (right) {% endcomment %}
+<header class="header" role="banner" aria-label="Site header">
+  <div class="header-inner">
+    <div class="left">
+      <button class="icon-btn" aria-label="Open menu">{% render 'icon-hamburger' %}</button>
+      <a class="icon-btn" aria-label="Search" href="/search">{% render 'icon-search' %}</a>
+    </div>
+
+    <div class="center" aria-label="Brand">ASH &amp; BORN</div>
+
+    <div class="right">
+      {% if section.settings.show_greeting %}
+        <div class="hello">Hello again, {{ customer.first_name | default: section.settings.greeting_default }}</div>
+      {% endif %}
+      <a class="icon-btn account" href="/account" aria-label="Account">{% render 'icon-account' %}</a>
+      <a class="icon-btn cart" href="/cart" aria-label="Cart" style="position:relative;">
+        {% render 'icon-cart' %}
+        {% if cart.item_count > 0 %}
+          <span class="cart-badge">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="headline">{{ section.settings.headline }}</h1>
+
+    <div class="cta-row" role="group" aria-label="Primary actions">
+      <a class="btn" href="{{ section.settings.shop_sleep_link }}" aria-label="Shop Sleep">SHOP SLEEP</a>
+      <a class="btn" href="{{ section.settings.shop_hydration_link }}" aria-label="Shop Hydration">SHOP HYDRATION</a>
+    </div>
+
+    <a class="btn btn-subscribe" href="{{ section.settings.subscribe_link }}" aria-label="Subscribe">SUBSCRIBE</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ash & Born – Home",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "NEXT LEVEL HYDRATION" },
+    { "type": "checkbox", "id": "show_greeting", "label": "Show greeting", "default": true },
+    { "type": "text", "id": "greeting_default", "label": "Greeting fallback", "default": "Hello again, Adiel" },
+    { "type": "url", "id": "shop_sleep_link", "label": "Shop Sleep link", "default": "/collections/sleep" },
+    { "type": "url", "id": "shop_hydration_link", "label": "Shop Hydration link", "default": "/collections/hydration" },
+    { "type": "url", "id": "subscribe_link", "label": "Subscribe link", "default": "/pages/subscribe" }
+  ],
+  "presets": [
+    { "name": "Ash & Born Home" }
+  ]
+}
+{% endschema %}
