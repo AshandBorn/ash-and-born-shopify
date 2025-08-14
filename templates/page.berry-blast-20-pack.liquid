@@ -15,9 +15,7 @@
 <!-- Product Details -->
 <section class="product-details">
   <div class="product-details-container">
-    <div class="product-image">
-      <img src="{{ 'hero-product.png' | asset_url }}" alt="Berry Blast 20 Pack">
-    </div>
+    {% render 'image-fallback', image: null, alt: 'Berry Blast 20 Pack', ratio: '1/1', placeholder: 'product-3' %}
     <div class="product-info">
       <h2>Description</h2>
       <p>Berry Blast delivers a sweet‑tart blend of berry flavours with a balanced mix of electrolytes to keep you powered through long days. This 20‑pack gives you twice the servings for extra value and convenience.</p>

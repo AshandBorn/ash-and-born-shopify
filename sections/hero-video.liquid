@@ -4,7 +4,7 @@
       <source src="{{ section.settings.video_url }}" type="video/mp4">
     </video>
   {% else %}
-    <img src="{{ 'hero_poster.jpg' | asset_url }}" alt="Ash & Born">
+    {% render 'image-fallback', image: null, alt: 'Ash & Born', ratio: '16/9', placeholder: 'lifestyle-1' %}
   {% endif %}
   {% if section.settings.badge != blank %}
     <div class="badge" style="position:absolute;top:16px;left:16px">{{ section.settings.badge }}</div>

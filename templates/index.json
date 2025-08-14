@@ -1,18 +1,31 @@
 {
   "sections": {
-    "ab-home": {
-      "type": "ab-home",
-      "settings": {
-        "headline": "NEXT LEVEL HYDRATION",
-        "show_greeting": true,
-        "greeting_default": "Hello again, Adiel",
-        "shop_sleep_link": "/collections/sleep",
-        "shop_hydration_link": "/collections/hydration",
-        "subscribe_link": "/pages/subscribe"
-      }
+    "hero": {
+      "type": "hero-video",
+      "settings": {}
+    },
+    "brand": {
+      "type": "brand-message",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-product",
+      "settings": {}
+    },
+    "showcase": {
+      "type": "product-showcase",
+      "settings": {}
+    },
+    "ingredients": {
+      "type": "ingredients-section",
+      "settings": {}
     }
   },
   "order": [
-    "ab-home"
+    "hero",
+    "brand",
+    "featured",
+    "showcase",
+    "ingredients"
   ]
 }
