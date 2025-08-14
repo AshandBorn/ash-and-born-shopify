@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_wordmark",
+        "label": "Brand wordmark",
+        "default": "ASH & BORN"
+      }
+    ]
+  }
+]

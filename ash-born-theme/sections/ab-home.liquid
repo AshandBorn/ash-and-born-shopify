@@ -1,8 +1,4 @@
-{% assign hero_asset = section.settings.hero_asset | default: '' %}
-{% if hero_asset != '' %}
-  {% assign hero_bg = hero_asset | asset_url %}
-{% endif %}
-
+{% comment %} Home section with header + hero & CTAs {% endcomment %}
 <header class="header" role="banner" aria-label="Site header">
   <div class="header-inner">
     <div class="left">
@@ -27,17 +23,6 @@
   </div>
 </header>
 
-<style>
-  .hero{
-    {% if hero_bg %}
-      background: url('{{ hero_bg }}') center/cover no-repeat;
-    {% else %}
-      background: linear-gradient(90deg,#22c55e,#06b6d4 50%,#f59e0b);
-    {% endif %}
-    padding:64px 16px 48px; color:#fff; position:relative; overflow:hidden;
-  }
-</style>
-
 <section class="hero">
   <div class="hero-inner">
     <h1 class="headline">{{ section.settings.headline }}</h1>
@@ -55,7 +40,6 @@
 {
   "name": "Ash & Born – Home",
   "settings": [
-    { "type": "text", "id": "hero_asset", "label": "Hero asset filename (in assets/)", "default": "hero-bg.jpg" },
     { "type": "text", "id": "headline", "label": "Headline", "default": "NEXT LEVEL HYDRATION" },
     { "type": "checkbox", "id": "show_greeting", "label": "Show greeting", "default": true },
     { "type": "text", "id": "greeting_default", "label": "Greeting fallback", "default": "Hello again, Adiel" },
