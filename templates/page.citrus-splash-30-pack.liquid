@@ -15,7 +15,9 @@
 <!-- Product Details -->
 <section class="product-details">
   <div class="product-details-container">
-    {% render 'image-fallback', image: null, alt: 'Citrus Splash 30 Pack', ratio: '1/1', placeholder: 'product-6' %}
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Citrus Splash 30 Pack">
+    </div>
     <div class="product-info">
       <h2>Description</h2>
       <p>Citrus Splash combines tangy orange and lemon notes with electrolytes to keep you refreshed after a tough workout or a long day in the sun. This 30‑pack provides a month’s worth of hydration on the go.</p>

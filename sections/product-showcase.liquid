@@ -6,7 +6,11 @@
         {% assign p = all_products[block.settings.product] %}
         <article class="product-card" {{ block.shopify_attributes }}>
           <a href="{{ p.url }}">
-            {% render 'image-fallback', image: p.featured_image, alt: p.title, ratio: '1/1', placeholder: 'product-1' %}
+            {% if p.featured_image %}
+              <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.title }}">
+            {% else %}
+              <img src="{{ 'product_placeholder.jpg' | asset_url }}" alt="{{ p.title }}">
+            {% endif %}
           </a>
           <div class="body">
             <h3 style="margin:0 0 8px 0">{{ p.title }}</h3>

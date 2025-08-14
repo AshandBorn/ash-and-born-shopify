@@ -1,7 +1,7 @@
 <section class="section">
   <div class="container grid" style="grid-template-columns:1fr 1fr">
     <div>
-      {% render 'image-fallback', image: section.settings.image, alt: section.settings.heading | default: 'Featured Product', ratio: '1/1', placeholder: 'product-2' %}
+      <img src="{{ section.settings.image | image_url: width: 1200 | default: 'product_placeholder.jpg' | asset_url }}" alt="">
     </div>
     <div>
       {% if section.settings.product != blank %}

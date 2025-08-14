@@ -1,0 +1,171 @@
+<section class="best-sellers" id="best-sellers">
+  <div class="section-header">
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    {% if section.settings.link_url != blank %}
+      <a href="{{ section.settings.link_url }}" class="shop-all-link">{{ section.settings.link_label }}</a>
+    {% endif %}
+  </div>
+  <div class="products-grid">
+    {% for block in section.blocks %}
+      <div class="product-card fade-in" {{ block.shopify_attributes }}>
+        {% if block.settings.sold_out %}
+          <div class="sold-out-badge">{{ section.settings.sold_out_label }}</div>
+        {% endif %}
+        <div class="product-image">
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              alt="{{ block.settings.title }}"
+              loading="lazy"
+            />
+          {% endif %}
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">
+            {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}">{{ block.settings.title }}</a>
+            {% else %}
+              {{ block.settings.title }}
+            {% endif %}
+          </h3>
+          <div class="product-price">
+            {{ block.settings.price | money_without_trailing_zeros }}
+            {% if block.settings.original_price != blank %}
+              <span class="original-price">{{ block.settings.original_price | money_without_trailing_zeros }}</span>
+            {% endif %}
+          </div>
+          <button
+            class="add-to-cart-btn{% if block.settings.sold_out %} sold-out-btn{% endif %}"
+          >
+            {% if block.settings.sold_out %}
+              {{ section.settings.sold_out_label }}
+            {% else %}
+              {{ section.settings.button_label }}
+            {% endif %}
+          </button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Best sellers",
+  "tag": "section",
+  "class": "section best-sellers-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section title",
+      "default": "Best sellers"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Shop all"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Add to cart button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "sold_out_label",
+      "label": "Sold out badge/label",
+      "default": "Sold out"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product title",
+          "default": "Product name"
+        },
+        {
+          "type": "number",
+          "id": "price",
+          "label": "Price",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "original_price",
+          "label": "Original price"
+        },
+        {
+          "type": "checkbox",
+          "id": "sold_out",
+          "label": "Sold out?",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Product page link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Best sellers",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "title": "Blue Raspberry",
+            "price": 5800,
+            "original_price": 6900,
+            "sold_out": true
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "Berry Blast",
+            "price": 8500,
+            "original_price": 10300
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "Tropical Sunrise",
+            "price": 17200,
+            "original_price": 18500
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "Lemon Lime",
+            "price": 3500
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

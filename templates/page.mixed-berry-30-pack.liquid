@@ -15,7 +15,9 @@
 <!-- Product Details -->
 <section class="product-details">
   <div class="product-details-container">
-    {% render 'image-fallback', image: null, alt: 'Mixed Berry 30 Pack', ratio: '1/1', placeholder: 'product-2' %}
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Mixed Berry 30 Pack">
+    </div>
     <div class="product-info">
       <h2>Description</h2>
       <p>Mixed Berry combines raspberries, blackberries and blueberries into a balanced flavour profile that’s never too sweet. Our 30‑pack supplies you with a month of hydration tailored for performance and recovery.</p>

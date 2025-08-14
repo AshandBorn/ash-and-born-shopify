@@ -20,12 +20,33 @@
       "type": "ingredients-section",
       "settings": {}
     }
+    ,
+    "bestsellers": {
+      "type": "best-sellers",
+      "settings": {}
+    },
+    "newarrivals": {
+      "type": "new-arrivals",
+      "settings": {}
+    },
+    "videosection": {
+      "type": "video-section",
+      "settings": {}
+    },
+    "howto": {
+      "type": "how-to-section",
+      "settings": {}
+    }
   },
   "order": [
     "hero",
     "brand",
     "featured",
     "showcase",
-    "ingredients"
+    "ingredients",
+    "bestsellers",
+    "newarrivals",
+    "videosection",
+    "howto"
   ]
 }

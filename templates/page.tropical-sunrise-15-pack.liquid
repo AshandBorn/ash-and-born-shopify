@@ -15,7 +15,9 @@
 <!-- Product Details -->
 <section class="product-details">
   <div class="product-details-container">
-    {% render 'image-fallback', image: null, alt: 'Tropical Sunrise 15 Pack', ratio: '1/1', placeholder: 'product-1' %}
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Tropical Sunrise 15 Pack">
+    </div>
     <div class="product-info">
       <h2>Description</h2>
       <p>Tropical Sunrise blends pineapple, mango and passionfruit flavours for a sweet start to your morning. Each 15‑pack is perfect for two weeks of daily hydration that tastes like a beach vacation.</p>

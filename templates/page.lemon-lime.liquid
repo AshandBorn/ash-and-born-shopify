@@ -15,7 +15,9 @@
 <!-- Product Details -->
 <section class="product-details">
   <div class="product-details-container">
-    {% render 'image-fallback', image: null, alt: 'Lemon Lime', ratio: '1/1', placeholder: 'product-4' %}
+    <div class="product-image">
+      <img src="{{ 'hero-product.png' | asset_url }}" alt="Lemon Lime">
+    </div>
     <div class="product-info">
       <h2>Description</h2>
       <p>Our Lemon Lime flavour delivers a crisp, zesty sip that tastes just like your favourite citrus sodas but without the sugar. A balanced electrolyte profile helps you stay energized and hydrated anytime.</p>

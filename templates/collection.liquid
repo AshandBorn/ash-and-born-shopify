@@ -13,8 +13,8 @@
         <!-- Item 1 -->
         <div class="product-card fade-in">
             <!-- Clicking the image opens a quick view modal -->
-            <div onclick="quickView('WATERMELON 10 PACK', 58.00, 69.00, 'A burst of juicy watermelon flavor with hydrating electrolytes and essential vitamins. Perfect for daily hydration and recovery.', 'watermelon.png')">
-                {% render 'image-fallback', image: null, alt: 'Watermelon', ratio: '1/1', placeholder: 'product-1' %}
+            <div class="product-image" onclick="quickView('WATERMELON 10 PACK', 58.00, 69.00, 'A burst of juicy watermelon flavor with hydrating electrolytes and essential vitamins. Perfect for daily hydration and recovery.', 'watermelon.png')">
+                <img src="{{ 'watermelon.png' | asset_url }}" alt="Watermelon" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">WATERMELON 10 PACK</h3>
@@ -24,8 +24,8 @@
         </div>
         <!-- Item 2 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('BERRY BLAST 20 PACK', 110.00, 130.00, 'An energizing blend of strawberries, raspberries and blueberries packed with electrolytes and antioxidants to power your day.', 'berry-blast.png')">
-                {% render 'image-fallback', image: null, alt: 'Berry Blast', ratio: '1/1', placeholder: 'product-2' %}
+            <div class="product-image" onclick="quickView('BERRY BLAST 20 PACK', 110.00, 130.00, 'An energizing blend of strawberries, raspberries and blueberries packed with electrolytes and antioxidants to power your day.', 'berry-blast.png')">
+                <img src="{{ 'berry-blast.png' | asset_url }}" alt="Berry Blast" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">BERRY BLAST 20 PACK</h3>
@@ -35,8 +35,8 @@
         </div>
         <!-- Item 3 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('CITRUS SPLASH 30 PACK', 172.00, 185.00, 'A zesty fusion of orange and lemon delivering a refreshing hydration boost with electrolytes and vitamin C.', 'citrus-splash.png')">
-                {% render 'image-fallback', image: null, alt: 'Citrus Splash', ratio: '1/1', placeholder: 'product-3' %}
+            <div class="product-image" onclick="quickView('CITRUS SPLASH 30 PACK', 172.00, 185.00, 'A zesty fusion of orange and lemon delivering a refreshing hydration boost with electrolytes and vitamin C.', 'citrus-splash.png')">
+                <img src="{{ 'citrus-splash.png' | asset_url }}" alt="Citrus Splash" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">CITRUS SPLASH 30 PACK</h3>
@@ -46,8 +46,8 @@
         </div>
         <!-- Item 4 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('LEMON LIME', 35.00, 62.00, 'Classic lemon‑lime flavor in an electrolyte-rich formula to keep you refreshed and hydrated.', 'lemon-lime.png')">
-                {% render 'image-fallback', image: null, alt: 'Lemon Lime', ratio: '1/1', placeholder: 'product-4' %}
+            <div class="product-image" onclick="quickView('LEMON LIME', 35.00, 62.00, 'Classic lemon‑lime flavor in an electrolyte-rich formula to keep you refreshed and hydrated.', 'lemon-lime.png')">
+                <img src="{{ 'lemon-lime.png' | asset_url }}" alt="Lemon Lime" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">LEMON LIME</h3>
@@ -57,8 +57,8 @@
         </div>
         <!-- Item 5 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('CHERRY PUNCH 10 PACK', 48.00, 55.00, 'Sweet and tangy cherry flavor combined with electrolytes and amino acids to support performance and recovery.', 'cherry-punch.png')">
-                {% render 'image-fallback', image: null, alt: 'Cherry Punch', ratio: '1/1', placeholder: 'product-5' %}
+            <div class="product-image" onclick="quickView('CHERRY PUNCH 10 PACK', 48.00, 55.00, 'Sweet and tangy cherry flavor combined with electrolytes and amino acids to support performance and recovery.', 'cherry-punch.png')">
+                <img src="{{ 'cherry-punch.png' | asset_url }}" alt="Cherry Punch" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">CHERRY PUNCH 10 PACK</h3>
@@ -68,8 +68,8 @@
         </div>
         <!-- Item 6 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('BLUE RASPBERRY 20 PACK', 120.00, 140.00, 'Delicious blue raspberry taste with a powerful electrolyte mix to enhance hydration and endurance.', 'blue-raspberry.png')">
-                {% render 'image-fallback', image: null, alt: 'Blue Raspberry', ratio: '1/1', placeholder: 'product-6' %}
+            <div class="product-image" onclick="quickView('BLUE RASPBERRY 20 PACK', 120.00, 140.00, 'Delicious blue raspberry taste with a powerful electrolyte mix to enhance hydration and endurance.', 'blue-raspberry.png')">
+                <img src="{{ 'blue-raspberry.png' | asset_url }}" alt="Blue Raspberry" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">BLUE RASPBERRY 20 PACK</h3>
@@ -79,8 +79,8 @@
         </div>
         <!-- Item 7 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('MIXED BERRY 30 PACK', 180.00, 200.00, 'A medley of mixed berries packed with vitamins and electrolytes to fuel your active lifestyle.', 'mixed-berry.png')">
-                {% render 'image-fallback', image: null, alt: 'Mixed Berry', ratio: '1/1', placeholder: 'product-1' %}
+            <div class="product-image" onclick="quickView('MIXED BERRY 30 PACK', 180.00, 200.00, 'A medley of mixed berries packed with vitamins and electrolytes to fuel your active lifestyle.', 'mixed-berry.png')">
+                <img src="{{ 'mixed-berry.png' | asset_url }}" alt="Mixed Berry" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">MIXED BERRY 30 PACK</h3>
@@ -90,8 +90,8 @@
         </div>
         <!-- Item 8 -->
         <div class="product-card fade-in">
-            <div onclick="quickView('TROPICAL SUNRISE 15 PACK', 90.00, 105.00, 'An exotic blend of tropical fruits with a sunrise‑inspired flavor, infused with electrolytes for all‑day hydration.', 'tropical-sunrise.png')">
-                {% render 'image-fallback', image: null, alt: 'Tropical Sunrise', ratio: '1/1', placeholder: 'product-2' %}
+            <div class="product-image" onclick="quickView('TROPICAL SUNRISE 15 PACK', 90.00, 105.00, 'An exotic blend of tropical fruits with a sunrise‑inspired flavor, infused with electrolytes for all‑day hydration.', 'tropical-sunrise.png')">
+                <img src="{{ 'tropical-sunrise.png' | asset_url }}" alt="Tropical Sunrise" loading="lazy" />
             </div>
             <div class="product-info">
                 <h3 class="product-name">TROPICAL SUNRISE 15 PACK</h3>

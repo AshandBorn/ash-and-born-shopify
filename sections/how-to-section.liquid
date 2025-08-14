@@ -1,0 +1,93 @@
+<section class="how-to-section">
+  {% if section.settings.banner_text != blank %}
+    <div class="how-to-banner">{{ section.settings.banner_text }}</div>
+  {% endif %}
+  <div class="steps-container">
+    {% for block in section.blocks %}
+      <div class="step fade-in" {{ block.shopify_attributes }}>
+        <div class="step-image">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" />
+          {% else %}
+            {%- comment -%}
+              Placeholder elements replicating the original design.
+            {%- endcomment -%}
+            <div class="packet"></div>
+          {% endif %}
+        </div>
+        <div class="step-number">{{ block.settings.step_number }}</div>
+        <div class="step-description">{{ block.settings.description }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How to section",
+  "tag": "section",
+  "class": "section how-to-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "ASH & BORN! HOW TO ASH & BORN! HOW TO ASH & BORN! HOW TO ASH & BORN!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step label",
+          "default": "STEP 1:"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Pick your favourite ASH & BORN flavour"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "How to use",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "STEP 1:",
+            "description": "Pick your favourite ASH & BORN flavour"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "STEP 2:",
+            "description": "Empty 1 sachet into 200ml of water"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "STEP 3:",
+            "description": "ASH & BORN your hydration"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
